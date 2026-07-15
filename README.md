@@ -46,6 +46,7 @@ ios-architecture-patterns/
     Deep Linking/
     Dynamic Navigation/
     NavigationLink/
+  Protocols/
   Testing/
     snapshot-testing/
     ui-testing/
