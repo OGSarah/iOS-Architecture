@@ -1,6 +1,6 @@
 # iOS Architecture & Design Patterns
 
-A collection of small, focused Xcode projects demonstrating architecture patterns and design patterns used in production iOS apps. 
+A collection of small, focused Xcode projects demonstrating architecture patterns and design patterns used in production iOS apps.
 
 Each folder is a standalone project you can open, run, and study on its own.
 
@@ -62,17 +62,89 @@ Every example follows the same baseline so comparisons are fair:
 - A short README explaining the pattern, when to use it, and its tradeoffs
 - No third party dependencies unless the pattern specifically calls for one (for example, a Redux style project may use a lightweight state container library)
 
-## Architecture patterns covered
+## Project index
 
-| Pattern | Folder | Best suited for |
+Every pattern and topic in the repository structure above, in one place. Items with a link are built. Everything else is planned and will be linked as it's added.
+
+### Architecture
+
+| Pattern | Icon | Description | Project |
+|---|---|---|---|
+| MVC | <img src="Architecture/mvc/Screenshots/AppIcon.png" width="40"> | The classic Apple flavored Model-View-Controller pattern, built with UIKit | [GitHubBrowser-MVC](Architecture/mvc) |
+| MVVM | | Moves view logic into a testable view model, common in SwiftUI apps | Not yet added |
+| MVVM-C | | MVVM with a Coordinator layered on top to handle navigation | Not yet added |
+| MVP | | Strict separation between view and presenter, common in UIKit apps | Not yet added |
+| VIPER | | Splits a screen into View, Interactor, Presenter, Entity, and Router | Not yet added |
+| Clean Swift (VIP) | | Clean Architecture adapted for iOS with a unidirectional VIP cycle | Not yet added |
+| Redux / TCA style | | Centralized, predictable state management for complex screens | Not yet added |
+
+### Concurrency
+
+| Topic | Description | Project |
 |---|---|---|
-| MVC | `architecture/mvc` | Small screens, quick prototypes |
-| MVVM | `architecture/mvvm` | SwiftUI apps, testable view logic |
-| MVVM-C | `architecture/mvvm-c` | MVVM plus decoupled navigation |
-| MVP | `architecture/mvp` | UIKit apps needing strict separation |
-| VIPER | `architecture/viper` | Large teams, strict module boundaries |
-| Clean Swift (VIP) | `architecture/clean-swift-vip` | Enterprise apps, heavy business logic |
-| Redux / TCA style | `architecture/redux-tca` | Complex state, predictable data flow |
+| Async/await | Structured concurrency for networking and background work | Not yet added |
+| Combine | Reactive streams for handling asynchronous events over time | Not yet added |
+| Actors | Data race safe state isolation using Swift's actor model | Not yet added |
+
+### Design patterns
+
+**Creational**
+
+| Pattern | Description | Project |
+|---|---|---|
+| Factory | Delegates object creation to a dedicated type instead of calling the initializer directly | Not yet added |
+| Builder | Constructs a complex object step by step | Not yet added |
+| Singleton | Restricts a type to a single shared instance | Not yet added |
+| Dependency injection | Supplies a type's dependencies from outside instead of creating them internally | Not yet added |
+
+**Structural**
+
+| Pattern | Description | Project |
+|---|---|---|
+| Adapter | Converts one interface into another that the rest of the app expects | Not yet added |
+| Facade | Provides a simple interface over a more complex subsystem | Not yet added |
+| Decorator | Adds behavior to an object without modifying its original type | Not yet added |
+| Repository | Abstracts data access behind a single, consistent interface | Not yet added |
+
+**Behavioral**
+
+| Pattern | Description | Project |
+|---|---|---|
+| Observer | Notifies interested objects when state changes | Not yet added |
+| Strategy | Swaps an algorithm's implementation at runtime behind a shared interface | Not yet added |
+| Coordinator | Extracts navigation logic out of view controllers into a dedicated object | Not yet added |
+| State machine | Models a screen or flow as a fixed set of states and transitions | Not yet added |
+| Command | Wraps a request or action as an object that can be queued or undone | Not yet added |
+
+### Modularization
+
+| Topic | Description | Project |
+|---|---|---|
+| Swift Package modules | Splitting an app into local Swift Packages for build speed and boundaries | Not yet added |
+| Feature flags | Toggling features on and off without shipping a new build | Not yet added |
+
+### Navigating and Routing with SwiftUI
+
+| Topic | Description | Project |
+|---|---|---|
+| NavigationLink | The default, view driven way to push screens in SwiftUI | Not yet added |
+| Dynamic navigation | Driving navigation from state instead of hardcoded links | Not yet added |
+| Centralized navigation | A single router or path object owning navigation for a flow | Not yet added |
+| Combined tab and stack | Managing navigation stacks nested inside tabs | Not yet added |
+| Deep linking | Routing a URL or notification straight to a specific screen | Not yet added |
+
+### Protocols
+
+| Topic | Description | Project |
+|---|---|---|
+| Protocol-oriented programming | Building shared behavior with protocols and extensions instead of inheritance | Not yet added |
+
+### Testing
+
+| Topic | Description | Project |
+|---|---|---|
+| Snapshot testing | Catching unintended UI changes by comparing rendered views against a reference image | Not yet added |
+| UI testing | End to end testing through `XCUIApplication` | Not yet added |
 
 ## Design patterns covered
 
@@ -82,7 +154,7 @@ Some projects use SwiftUI, others use UIKit, and a few show both side by side fo
 
 ## How to use this repository
 
-1. Pick a pattern from the table above or browse the folders directly
+1. Pick a pattern from the project index above or browse the folders directly
 2. Open the `.xcodeproj` or `.xcworkspace` inside that folder
 3. Read the local README first, it covers the reasoning before you read code
 4. Run the tests to see how the pattern affects testability
