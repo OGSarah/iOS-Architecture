@@ -1,6 +1,6 @@
 # iOS Architecture & Design Patterns
 
-A collection of small, focused Xcode projects demonstrating architecture patterns and design patterns used in production iOS apps. Built for engineers who already know Swift and UIKit/SwiftUI basics and want clear, real world reference implementations rather than toy examples.
+A collection of small, focused Xcode projects demonstrating architecture patterns and design patterns used in production iOS apps. 
 
 Each folder is a standalone project you can open, run, and study on its own.
 
