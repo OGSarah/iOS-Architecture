@@ -12,6 +12,7 @@ import UIKit
 /// network on its own.
 final class RepositoryCell: UITableViewCell {
 
+    /// The identifier the list controller registers and dequeues with.
     static let reuseIdentifier = "RepositoryCell"
 
     private let nameLabel = UILabel()
@@ -28,16 +29,20 @@ final class RepositoryCell: UITableViewCell {
         setUpViews()
     }
 
+    /// Builds the label stack and applies fonts, colors, and identifiers.
     private func setUpViews() {
         nameLabel.font = .preferredFont(forTextStyle: .headline)
         nameLabel.numberOfLines = 1
+        nameLabel.accessibilityIdentifier = AccessibilityID.Cell.nameLabel
 
         descriptionLabel.font = .preferredFont(forTextStyle: .subheadline)
         descriptionLabel.textColor = .secondaryLabel
         descriptionLabel.numberOfLines = 2
+        descriptionLabel.accessibilityIdentifier = AccessibilityID.Cell.descriptionLabel
 
         statsLabel.font = .preferredFont(forTextStyle: .footnote)
         statsLabel.textColor = .tertiaryLabel
+        statsLabel.accessibilityIdentifier = AccessibilityID.Cell.statsLabel
 
         let stack = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel, statsLabel])
         stack.axis = .vertical
@@ -53,8 +58,14 @@ final class RepositoryCell: UITableViewCell {
         ])
 
         accessoryType = .disclosureIndicator
+        accessibilityIdentifier = AccessibilityID.Cell.cell
     }
 
+    /// Populates the cell's labels with the given repository's data,
+    /// falling back to placeholder text when the description is missing
+    /// and omitting the language from the stats line when it is unknown.
+    ///
+    /// - Parameter repository: The repository to display.
     func configure(with repository: Repository) {
         nameLabel.text = repository.name
         descriptionLabel.text = repository.description ?? "No description"

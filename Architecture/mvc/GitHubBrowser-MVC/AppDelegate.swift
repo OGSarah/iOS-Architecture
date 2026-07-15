@@ -7,6 +7,9 @@
 
 import UIKit
 
+/// The application-level entry point. This app keeps it deliberately
+/// empty: all UI construction happens in `SceneDelegate`, so the app
+/// delegate only vends the default scene configuration.
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: UISceneSession Lifecycle
 
+    /// Vends the configuration for a new scene; the "Default
+    /// Configuration" in Info.plist points UIKit at `SceneDelegate`.
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 

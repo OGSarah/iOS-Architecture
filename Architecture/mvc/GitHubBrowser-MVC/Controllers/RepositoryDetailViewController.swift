@@ -12,6 +12,8 @@ import UIKit
 /// keeps navigation between screens explicit and easy to follow.
 final class RepositoryDetailViewController: UIViewController {
 
+    /// The repository this screen displays, handed over by the list
+    /// controller when the user selects a row.
     private let repository: Repository
 
     private let scrollView = UIScrollView()
@@ -21,6 +23,10 @@ final class RepositoryDetailViewController: UIViewController {
     private let statsLabel = UILabel()
     private let openInGitHubButton = UIButton(type: .system)
 
+    /// Creates a detail controller for a single repository.
+    ///
+    /// - Parameter repository: The repository to display. The navigation
+    ///   title is derived from its name.
     init(repository: Repository) {
         self.repository = repository
         super.init(nibName: nil, bundle: nil)
@@ -38,6 +44,8 @@ final class RepositoryDetailViewController: UIViewController {
         configure()
     }
 
+    /// Builds the scroll view and the vertical stack of labels and the
+    /// button, and assigns accessibility identifiers for the tests.
     private func setUpViews() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
@@ -50,16 +58,21 @@ final class RepositoryDetailViewController: UIViewController {
 
         nameLabel.font = .preferredFont(forTextStyle: .title1)
         nameLabel.numberOfLines = 0
+        nameLabel.accessibilityIdentifier = AccessibilityID.Detail.nameLabel
 
         descriptionLabel.font = .preferredFont(forTextStyle: .body)
         descriptionLabel.textColor = .secondaryLabel
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.accessibilityIdentifier = AccessibilityID.Detail.descriptionLabel
 
         statsLabel.font = .preferredFont(forTextStyle: .footnote)
         statsLabel.textColor = .tertiaryLabel
+        statsLabel.numberOfLines = 0
+        statsLabel.accessibilityIdentifier = AccessibilityID.Detail.statsLabel
 
         openInGitHubButton.setTitle("Open in GitHub", for: .normal)
         openInGitHubButton.addTarget(self, action: #selector(openInGitHubTapped), for: .touchUpInside)
+        openInGitHubButton.accessibilityIdentifier = AccessibilityID.Detail.openInGitHubButton
 
         contentStack.axis = .vertical
         contentStack.spacing = 12
@@ -78,6 +91,9 @@ final class RepositoryDetailViewController: UIViewController {
         ])
     }
 
+    /// Populates the labels from the repository, falling back to
+    /// placeholder text when the description is missing and omitting
+    /// the language line when it is unknown.
     private func configure() {
         nameLabel.text = repository.fullName
         descriptionLabel.text = repository.description ?? "No description provided."
@@ -95,6 +111,7 @@ final class RepositoryDetailViewController: UIViewController {
         statsLabel.text = statsParts.joined(separator: "\n")
     }
 
+    /// Opens the repository's page on github.com in the user's browser.
     @objc private func openInGitHubTapped() {
         UIApplication.shared.open(repository.htmlURL)
     }

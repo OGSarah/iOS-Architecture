@@ -7,6 +7,9 @@
 
 import UIKit
 
+/// Builds the app's single window and installs the root navigation
+/// stack. In MVC terms this is where the first Controller is created
+/// and handed its dependencies.
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -14,16 +17,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     /// The GitHub account whose repositories the app browses.
     private let defaultUsername = "apple"
 
+    /// Creates the window with a navigation controller rooted at the
+    /// repository list.
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let listViewController = RepositoryListViewController(username: defaultUsername)
+        let listViewController = RepositoryListViewController(username: defaultUsername, session: makeSession())
         let navigationController = UINavigationController(rootViewController: listViewController)
 
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
+    }
+
+    /// The session the list controller fetches with. During UI test runs
+    /// a stubbed session serves fixture data so tests never depend on the
+    /// live GitHub API; see `UITestNetworkStub.swift`.
+    private func makeSession() -> URLSession {
+        #if DEBUG
+        if UITestScenario.current != nil {
+            return UITestScenario.makeSession()
+        }
+        #endif
+        return .shared
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -56,4 +73,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

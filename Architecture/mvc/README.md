@@ -24,25 +24,92 @@ A small GitHub repository browser:
 - A list screen that fetches and displays a user's public repositories
 - A detail screen showing repository stats (stars, forks, description, language)
 - Pull to refresh and basic error handling with a retry option
-- Unit tests around the model layer
+- Unit tests across the model, formatting, view, and controller layers, plus UI tests that run against stubbed network data
+
+## Screenshots
+
+| | Light | Dark |
+|---|---|---|
+| **Repository list** | <img src="Screenshots/ListLight.png" width="250"> | <img src="Screenshots/ListDark.png" width="250"> |
+| **Repository detail** | <img src="Screenshots/DetailLight.png" width="250"> | <img src="Screenshots/DetailDark.png" width="250"> |
+
+## Built with
+
+| Tool / Framework | Role |
+|---|---|
+| Swift 6 | Language, with strict concurrency and main-actor default isolation |
+| UIKit | UI framework: view controllers, diffable data source, Auto Layout |
+| Foundation | `URLSession` async/await networking, `JSONDecoder`, `RelativeDateTimeFormatter` |
+| Swift Testing | Unit tests (`@Test`, `#expect`, parameterized cases) |
+| XCTest + XCUIAutomation | UI tests that drive the app in the simulator |
+| iOS 27 | Deployment target |
+| Xcode 27 | IDE and build system |
+
+No third party dependencies.
 
 ## Project structure
  
 ```
-Models/
-  Repository.swift          the data and the logic to fetch it
-Views/
-  RepositoryCell.swift       the table view cell
-  RepositoryFormatting.swift string formatting used by the views
-Controllers/
-  RepositoryListViewController.swift
-  RepositoryDetailViewController.swift
-Tests/
-  RepositoryModelTests.swift
-  RepositoryFormattingTests.swift
-  StubURLProtocol.swift      a network stub used only by the tests
+mvc/
+  GitHubBrowser-MVC/                       the app target
+    AppDelegate.swift                      app entry point, vends the scene configuration
+    SceneDelegate.swift                    builds the window and the root navigation stack
+    AccessibilityIdentifiers.swift         identifier strings shared by the views and the tests
+    Models/
+      Repository.swift                     the data and the logic to fetch it
+    Views/
+      RepositoryCell.swift                 the table view cell
+      RepositoryFormatting.swift           string formatting used by the views
+    Controllers/
+      RepositoryListViewController.swift
+      RepositoryDetailViewController.swift
+    TestSupport/
+      UITestNetworkStub.swift              DEBUG-only fixture data served during UI test runs
+  GitHubBrowser-MVCTests/                  unit tests (Swift Testing)
+    RepositoryModelTests.swift
+    RepositoryErrorTests.swift
+    RepositoryFormattingTests.swift
+    RepositoryCellTests.swift
+    RepositoryDetailViewControllerTests.swift
+    RepositoryListViewControllerTests.swift
+    StubURLProtocol.swift                  a network stub used only by the tests
+    TestHelpers.swift                      fixtures and view-lookup helpers
+  GitHubBrowser-MVCUITests/                UI tests (XCTest + XCUIAutomation)
+    GitHubBrowser_MVCUITests.swift
+  Screenshots/
+  README.md
 ```
- 
+
+## Architecture at a glance
+
+```mermaid
+flowchart LR
+    subgraph Model
+        Repo["Repository"]
+        GitHub[("GitHub API")]
+    end
+    subgraph Controller
+        List["RepositoryListViewController"]
+        Detail["RepositoryDetailViewController"]
+    end
+    subgraph View
+        Table["UITableView"]
+        Cell["RepositoryCell"]
+    end
+
+    List -- "1: fetchAll(forUsername:)" --> Repo
+    Repo -- "2: URLSession async/await" --> GitHub
+    Repo -- "3: [Repository]" --> List
+    List -- "4: applies snapshot" --> Table
+    Table -- "5: configure(with:)" --> Cell
+    Table -. "didSelectRowAt (delegate)" .-> List
+    List -- "pushes with a Repository" --> Detail
+```
+
+- Solid arrows are the Controller driving the Model and the View
+- The dotted arrow is the View reporting a user action back through delegation
+- The Model and the View never touch each other
+
 ## How MVC is structured here
  
 **Model**
@@ -111,8 +178,22 @@ Even with that discipline, the view controller is still both the "controller" an
 
 ## Testing notes
  
-The model layer is fully unit tested using a stubbed `URLProtocol`, so the tests exercise the real fetch and decode logic without touching the network. The view controllers are not unit tested directly. This is a known limitation of MVC and is left as is on purpose, rather than worked around, since working around it usually means quietly turning the project into MVVM.
- 
+Every layer is covered, and no test ever touches the live network. Run everything with **⌘U**.
+
+**Unit tests (Swift Testing)**
+
+- **Model** — `Repository.fetchAll` is exercised through a stubbed `URLProtocol`: successful decoding, `null` fields, empty responses, server errors, malformed JSON, transport failures, and the exact URL and `Accept` header it sends
+- **Formatting** — `compactCount` across its magnitude boundaries (including the `999,999 → "1000.0k"` rounding quirk, pinned on purpose) and `relativeUpdatedAt` made deterministic by injecting the reference date and locale
+- **Error copy** — every `RepositoryError.message` string the error alert can display is pinned, so wording changes are deliberate
+- **Views** — `RepositoryCell` and the detail controller are configured with fixture models and their labels asserted through accessibility identifiers, without widening any access control
+- **List controller** — built with an injected stubbed `URLSession`, hosted in a `UIWindow`, and driven through its real `viewDidLoad` load: table population, the empty state, and the error alert are all asserted
+
+MVC's classic testability tradeoff still applies: the view controllers needed a small injection seam (`init(username:session:)`) to become testable at all, which is exactly the friction patterns like MVVM remove.
+
+**UI tests (XCUIAutomation)**
+
+Five end-to-end flows: list rendering, navigation to detail and back, the missing-description fallback, the empty state, and the error alert. Each launch passes a `UITEST_STUB_SCENARIO` environment value that the app (in DEBUG builds only) uses to serve fixture JSON instead of calling GitHub, so the suite is fast, deterministic, and immune to rate limits.
+
 ## Tradeoffs summary
  
 | | |

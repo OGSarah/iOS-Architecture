@@ -10,16 +10,23 @@ import Foundation
 /// A stand in for the network used only in tests. It intercepts
 /// requests made through a URLSession configured with it and returns
 /// whatever response the test has set up.
-final class StubURLProtocol: URLProtocol {
+///
+/// Handlers are stored per subclass so independent test suites can run
+/// in parallel without racing on shared state: each suite that needs
+/// the network talks to its own `StubURLProtocol` subclass (see
+/// `ListStubURLProtocol`).
+class StubURLProtocol: URLProtocol {
 
-    // The handler is set by the test and read by URLProtocol instances on
+    // Handlers are set by tests and read by URLProtocol instances on
     // background loading threads, so access is guarded by a lock.
     private static let lock = NSLock()
-    nonisolated(unsafe) private static var _requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))?
+    nonisolated(unsafe) private static var handlers: [ObjectIdentifier: (URLRequest) throws -> (HTTPURLResponse, Data)] = [:]
 
+    /// The handler answering requests routed through this class. Reading
+    /// on a subclass sees only that subclass's handler.
     static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))? {
-        get { lock.withLock { _requestHandler } }
-        set { lock.withLock { _requestHandler = newValue } }
+        get { lock.withLock { handlers[ObjectIdentifier(self)] } }
+        set { lock.withLock { handlers[ObjectIdentifier(self)] = newValue } }
     }
 
     override class func canInit(with request: URLRequest) -> Bool {
@@ -31,8 +38,8 @@ final class StubURLProtocol: URLProtocol {
     }
 
     override func startLoading() {
-        guard let handler = StubURLProtocol.requestHandler else {
-            fatalError("StubURLProtocol.requestHandler was not set before the request was made")
+        guard let handler = type(of: self).requestHandler else {
+            fatalError("\(type(of: self)).requestHandler was not set before the request was made")
         }
 
         do {
@@ -47,9 +54,16 @@ final class StubURLProtocol: URLProtocol {
 
     override func stopLoading() {}
 
+    /// Creates an ephemeral session that routes every request through
+    /// the subclass this is called on.
     static func makeSession() -> URLSession {
         let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [StubURLProtocol.self]
+        configuration.protocolClasses = [self]
         return URLSession(configuration: configuration)
     }
 }
+
+/// Dedicated stub for `RepositoryListViewControllerTests` so its
+/// handler cannot race `RepositoryModelTests`, which uses the base
+/// class and may run in parallel in the same process.
+final class ListStubURLProtocol: StubURLProtocol {}
