@@ -9,13 +9,13 @@ Each folder is a standalone project you can open, run, and study on its own.
 ```
 ios-architecture-patterns/
   Architecture/
+    clean-swift-vip/
     mvc/
+    mvp/
     mvvm/
     mvvm-c/
-    mvp/
-    viper/
-    clean-swift-vip/
     redux-tca/
+    viper/
   Concurrency/
     actors/
     async-await/
