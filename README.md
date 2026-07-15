@@ -4,10 +4,6 @@ A collection of small, focused Xcode projects demonstrating architecture pattern
 
 Each folder is a standalone project you can open, run, and study on its own.
 
-## Why this exists
-
-Most tutorials show a pattern in isolation with a trivial to do list app. That does not reflect how these patterns actually behave once you add navigation, networking, testing, and state management. Every project here tries to include those pieces so you can see the pattern under realistic conditions.
-
 ## Repository structure
 
 ```
