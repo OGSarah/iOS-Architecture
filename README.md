@@ -4,55 +4,6 @@ A collection of small, focused Xcode projects demonstrating architecture pattern
 
 Each folder is a standalone project you can open, run, and study on its own.
 
-## Repository structure
-
-```
-ios-architecture-patterns/
-  Architecture/
-    clean-swift-vip/
-    mvc/
-    mvp/
-    mvvm/
-    mvvm-c/
-    redux-tca/
-    viper/
-  Concurrency/
-    actors/
-    async-await/
-    combine/
-  Design-patterns/
-      Behavioral/
-        command/
-        coordinator/
-        observer/
-        state-machine/
-        strategy/
-      Creational/
-        builder/
-        dependency-injection/
-        factory/
-        singleton/
-      Structural/
-        adapter/
-        decorator/
-        facade/
-        repository/
-  Modularization/
-    feature-flags/
-    swift-package-modules/
-  Navigating and Routing with SwiftUI/
-    Centralized Navigation/
-    Combined Tab and Stack/
-    Deep Linking/
-    Dynamic Navigation/
-    NavigationLink/
-  Protocols/
-  Testing/
-    snapshot-testing/
-    ui-testing/
-  README.md
-```
-
 ## What each project includes
 
 Every example follows the same baseline so comparisons are fair:
@@ -68,15 +19,15 @@ Every pattern and topic in the repository structure above, in one place. Items w
 
 ### Architecture
 
-| Pattern | Icon | Description | Project |
-|---|---|---|---|
-| MVC | <img src="Architecture/mvc/Screenshots/AppIcon.png" width="40"> | The classic Apple flavored Model-View-Controller pattern, built with UIKit | [GitHubBrowser-MVC](Architecture/mvc) |
-| MVVM | | Moves view logic into a testable view model, common in SwiftUI apps | Not yet added |
-| MVVM-C | | MVVM with a Coordinator layered on top to handle navigation | Not yet added |
-| MVP | | Strict separation between view and presenter, common in UIKit apps | Not yet added |
-| VIPER | | Splits a screen into View, Interactor, Presenter, Entity, and Router | Not yet added |
-| Clean Swift (VIP) | | Clean Architecture adapted for iOS with a unidirectional VIP cycle | Not yet added |
-| Redux / TCA style | | Centralized, predictable state management for complex screens | Not yet added |
+| Pattern | Description | Project |
+|---|---|---|
+| MVC | The classic Apple flavored Model-View-Controller pattern, built with UIKit | [GitHubBrowser-MVC](Architecture/mvc) |
+| MVVM | Moves view logic into a testable view model, common in SwiftUI apps | Not yet added |
+| MVVM-C | MVVM with a Coordinator layered on top to handle navigation | Not yet added |
+| MVP | Strict separation between view and presenter, common in UIKit apps | Not yet added |
+| VIPER | Splits a screen into View, Interactor, Presenter, Entity, and Router | Not yet added |
+| Clean Swift (VIP) | Clean Architecture adapted for iOS with a unidirectional VIP cycle | Not yet added |
+| Redux / TCA style | Centralized, predictable state management for complex screens | Not yet added |
 
 ### Concurrency
 
@@ -123,7 +74,7 @@ Every pattern and topic in the repository structure above, in one place. Items w
 | Swift Package modules | Splitting an app into local Swift Packages for build speed and boundaries | Not yet added |
 | Feature flags | Toggling features on and off without shipping a new build | Not yet added |
 
-### Navigating and Routing with SwiftUI
+### Navigating and routing with SwiftUI
 
 | Topic | Description | Project |
 |---|---|---|
