@@ -16,6 +16,10 @@ ios-architecture-patterns/
     viper/
     clean-swift-vip/
     redux-tca/
+  Concurrency/
+    actors/
+    async-await/
+    combine/
   Design-patterns/
       Behavioral/
         command/
@@ -33,10 +37,6 @@ ios-architecture-patterns/
         decorator/
         facade/
         repository/
-  Concurrency/
-    actors/
-    async-await/
-    combine/
   Modularization/
     feature-flags/
     swift-package-modules/
