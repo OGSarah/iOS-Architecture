@@ -8,7 +8,7 @@ Each folder is a standalone project you can open, run, and study on its own.
 
 ```
 ios-architecture-patterns/
-  architecture/
+  Architecture/
     mvc/
     mvvm/
     mvvm-c/
@@ -16,32 +16,37 @@ ios-architecture-patterns/
     viper/
     clean-swift-vip/
     redux-tca/
-  design-patterns/
-    creational/
-      factory/
-      builder/
-      singleton/
-      dependency-injection/
-    structural/
-      adapter/
-      facade/
-      decorator/
-      repository/
-    behavioral/
-      observer/
-      strategy/
-      coordinator/
-      state-machine/
-      command/
-  concurrency/
+  Design-patterns/
+      Behavioral/
+        command/
+        coordinator/
+        observer/
+        state-machine/
+        strategy/
+      Creational/
+        builder/
+        dependency-injection/
+        factory/
+        singleton/
+      Structural/
+        adapter/
+        decorator/
+        facade/
+        repository/
+  Concurrency/
+    actors/
     async-await/
     combine/
-    actors/
-  modularization/
-    swift-package-modules/
+  Modularization/
     feature-flags/
-  testing/
-    unit-testing-patterns/
+    swift-package-modules/
+  Navigating and Routing with SwiftUI/
+    Centralized Navigation/
+    Combined Tab and Stack/
+    Deep Linking/
+    Dynamic Navigation/
+    NavigationLink/
+  Testing/
     snapshot-testing/
     ui-testing/
   README.md
