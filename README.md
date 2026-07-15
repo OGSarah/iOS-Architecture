@@ -84,3 +84,7 @@ Some projects use SwiftUI, others use UIKit, and a few show both side by side fo
 2. Open the `.xcodeproj` or `.xcworkspace` inside that folder
 3. Read the local README first, it covers the reasoning before you read code
 4. Run the tests to see how the pattern affects testability
+
+## License
+
+Released under the [MIT License](LICENSE). © 2026 SarahUniverse
