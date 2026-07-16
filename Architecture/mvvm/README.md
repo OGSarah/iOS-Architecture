@@ -31,8 +31,6 @@ A small aurora forecast browser for the wrist, backed by NOAA's Space Weather Pr
 
 ## Screenshots
 
-watchOS has a single dark appearance, so there is one column of screenshots. The list is showing stubbed fixture data so the storm badges are visible; the detail screen is a G3 window.
-
 | | Screenshot |
 |---|---|
 | **Forecast list** | <img src="Screenshots/ForecastList.png" width="250"> |
@@ -189,10 +187,6 @@ This project avoids that as much as MVVM allows by:
 - Keeping the view models limited to owning screen state, calling the service, and mapping models into display data
 
 Even with that discipline, MVVM has no answer for navigation. The list view still decides what pushes onto the `NavigationStack`, which means navigation logic lives in a view. That dual role is the root cause of the coordinator conversation and is difficult to avoid completely without moving to a pattern that gives navigation its own type, such as MVVM-C.
-
-## Why watchOS makes this worth it
-
-The watch is where MVVM stops being a style preference. Screens are tiny, so almost all of the interesting work is deciding what to show rather than showing it: which of 24 forecast windows is worth surfacing, whether to say "Kp 6" or "Strong storm", whether a value is old enough to gray out. That is real logic, it changes often, and running it inside a `body` on a device with a five second launch budget and a rendering surface you cannot easily host in a test is a bad trade. Pulling it into a view model means the entire decision layer is testable in milliseconds, and the widget target can reuse it without dragging a view along.
 
 ## When to use MVVM
 
