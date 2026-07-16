@@ -21,8 +21,8 @@ Every pattern and topic in the repository structure above, in one place. Items w
 
 | Pattern | Description | Project |
 |---|---|---|
-| MVC | The classic Apple flavored Model-View-Controller pattern, built with UIKit | [GitHubBrowser-MVC](Architecture/mvc) |
-| MVVM | Moves view logic into a testable view model, common in SwiftUI apps | [AuroraWatch-MVVM](Architecture/mvvm) |
+| MVC | A GitHub repository browser in UIKit: a list of a user's public repos backed by a diffable data source, a detail screen with stars, forks, language, and a relative updated line, pull to refresh, and an error alert with retry | [GitHubBrowser-MVC](Architecture/mvc) |
+| MVVM | An independent watchOS aurora forecast app on NOAA SWPC data: three days of Kp windows color coded by storm level, a detail screen per window, and a complication sharing the app's model layer | [AuroraWatch-MVVM](Architecture/mvvm) |
 | MVVM-C | MVVM with a Coordinator layered on top to handle navigation | Not yet added |
 | MVP | Strict separation between view and presenter, common in UIKit apps | Not yet added |
 | VIPER | Splits a screen into View, Interactor, Presenter, Entity, and Router | Not yet added |
