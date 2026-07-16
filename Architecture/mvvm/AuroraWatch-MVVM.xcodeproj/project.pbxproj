@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		26B9233F3008F4A4007EA204 /* AuroraWatch-MVVM Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 26B9233E3008F4A4007EA204 /* AuroraWatch-MVVM Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		26D672E030090F2A004D20EF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D672DF30090F2A004D20EF /* WidgetKit.framework */; };
+		26D672E230090F2A004D20EF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D672E130090F2A004D20EF /* SwiftUI.framework */; };
+		26D672EF30090F2B004D20EF /* AuroraWatch-MVVMWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 26D672DD30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,13 @@
 			remoteGlobalIDString = 26B9233D3008F4A4007EA204;
 			remoteInfo = "AuroraWatch-MVVM Watch App";
 		};
+		26D672ED30090F2B004D20EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26B923323008F4A4007EA204 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26D672DC30090F2A004D20EF;
+			remoteInfo = "AuroraWatch-MVVMWidgetExtension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +54,15 @@
 			);
 			name = "Embed Watch Content";
 		};
+		26D672F430090F2B004D20EF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				26D672EF30090F2B004D20EF /* AuroraWatch-MVVMWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -51,11 +70,37 @@
 		26B9233E3008F4A4007EA204 /* AuroraWatch-MVVM Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AuroraWatch-MVVM Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B9234D3008F4A6007EA204 /* AuroraWatch-MVVM Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AuroraWatch-MVVM Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B923573008F4A6007EA204 /* AuroraWatch-MVVM Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AuroraWatch-MVVM Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D672DD30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AuroraWatch-MVVMWidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D672DF30090F2A004D20EF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		26D672E130090F2A004D20EF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		26D672F030090F2B004D20EF /* Exceptions for "AuroraWatch-MVVMWidget" folder in "AuroraWatch-MVVMWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 26D672DC30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension */;
+		};
+		26D672FA30091076004D20EF /* Exceptions for "AuroraWatch-MVVM Watch App" folder in "AuroraWatch-MVVMWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Formatting/ForecastFormatting.swift,
+				Models/ForecastService.swift,
+				Models/ForecastWindow.swift,
+				Models/StormLevel.swift,
+			);
+			target = 26D672DC30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		26B923423008F4A4007EA204 /* AuroraWatch-MVVM Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				26D672FA30091076004D20EF /* Exceptions for "AuroraWatch-MVVM Watch App" folder in "AuroraWatch-MVVMWidgetExtension" target */,
+			);
 			path = "AuroraWatch-MVVM Watch App";
 			sourceTree = "<group>";
 		};
@@ -67,6 +112,14 @@
 		26B9235A3008F4A6007EA204 /* AuroraWatch-MVVM Watch AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "AuroraWatch-MVVM Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		26D672E330090F2A004D20EF /* AuroraWatch-MVVMWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				26D672F030090F2B004D20EF /* Exceptions for "AuroraWatch-MVVMWidget" folder in "AuroraWatch-MVVMWidgetExtension" target */,
+			);
+			path = "AuroraWatch-MVVMWidget";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -87,6 +140,13 @@
 			files = (
 			);
 		};
+		26D672DA30090F2A004D20EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				26D672E230090F2A004D20EF /* SwiftUI.framework in Frameworks */,
+				26D672E030090F2A004D20EF /* WidgetKit.framework in Frameworks */,
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,6 +156,8 @@
 				26B923423008F4A4007EA204 /* AuroraWatch-MVVM Watch App */,
 				26B923503008F4A6007EA204 /* AuroraWatch-MVVM Watch AppTests */,
 				26B9235A3008F4A6007EA204 /* AuroraWatch-MVVM Watch AppUITests */,
+				26D672E330090F2A004D20EF /* AuroraWatch-MVVMWidget */,
+				26D672DE30090F2A004D20EF /* Frameworks */,
 				26B923393008F4A4007EA204 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,8 +169,18 @@
 				26B9233E3008F4A4007EA204 /* AuroraWatch-MVVM Watch App.app */,
 				26B9234D3008F4A6007EA204 /* AuroraWatch-MVVM Watch AppTests.xctest */,
 				26B923573008F4A6007EA204 /* AuroraWatch-MVVM Watch AppUITests.xctest */,
+				26D672DD30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		26D672DE30090F2A004D20EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26D672DF30090F2A004D20EF /* WidgetKit.framework */,
+				26D672E130090F2A004D20EF /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +210,12 @@
 				26B9233A3008F4A4007EA204 /* Sources */,
 				26B9233B3008F4A4007EA204 /* Frameworks */,
 				26B9233C3008F4A4007EA204 /* Resources */,
+				26D672F430090F2B004D20EF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
+			);
+			dependencies = (
+				26D672EE30090F2B004D20EF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				26B923423008F4A4007EA204 /* AuroraWatch-MVVM Watch App */,
@@ -191,6 +267,24 @@
 			productReference = 26B923573008F4A6007EA204 /* AuroraWatch-MVVM Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		26D672DC30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26D672F130090F2B004D20EF /* Build configuration list for PBXNativeTarget "AuroraWatch-MVVMWidgetExtension" */;
+			buildPhases = (
+				26D672D930090F2A004D20EF /* Sources */,
+				26D672DA30090F2A004D20EF /* Frameworks */,
+				26D672DB30090F2A004D20EF /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				26D672E330090F2A004D20EF /* AuroraWatch-MVVMWidget */,
+			);
+			name = "AuroraWatch-MVVMWidgetExtension";
+			productName = "AuroraWatch-MVVMWidgetExtension";
+			productReference = 26D672DD30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -215,6 +309,9 @@
 						CreatedOnToolsVersion = 27.0;
 						TestTargetID = 26B9233D3008F4A4007EA204;
 					};
+					26D672DC30090F2A004D20EF = {
+						CreatedOnToolsVersion = 27.0;
+					};
 				};
 			};
 			buildConfigurationList = 26B923353008F4A4007EA204 /* Build configuration list for PBXProject "AuroraWatch-MVVM" */;
@@ -235,6 +332,7 @@
 				26B9233D3008F4A4007EA204 /* AuroraWatch-MVVM Watch App */,
 				26B9234C3008F4A6007EA204 /* AuroraWatch-MVVM Watch AppTests */,
 				26B923563008F4A6007EA204 /* AuroraWatch-MVVM Watch AppUITests */,
+				26D672DC30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +358,11 @@
 			files = (
 			);
 		};
+		26D672DB30090F2A004D20EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -274,6 +377,11 @@
 			);
 		};
 		26B923533008F4A6007EA204 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		26D672D930090F2A004D20EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
 			);
@@ -295,6 +403,11 @@
 			isa = PBXTargetDependency;
 			target = 26B9233D3008F4A4007EA204 /* AuroraWatch-MVVM Watch App */;
 			targetProxy = 26B923583008F4A6007EA204 /* PBXContainerItemProxy */;
+		};
+		26D672EE30090F2B004D20EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26D672DC30090F2A004D20EF /* AuroraWatch-MVVMWidgetExtension */;
+			targetProxy = 26D672ED30090F2B004D20EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -615,6 +728,73 @@
 			};
 			name = Release;
 		};
+		26D672F230090F2B004D20EF /* Debug configuration for PBXNativeTarget "AuroraWatch-MVVMWidgetExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AuroraWatch-MVVMWidget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AuroraWatch-MVVMWidget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AuroraWatch-MVVM.watchkitapp.AuroraWatch-MVVMWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Debug;
+		};
+		26D672F330090F2B004D20EF /* Release configuration for PBXNativeTarget "AuroraWatch-MVVMWidgetExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AuroraWatch-MVVMWidget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AuroraWatch-MVVMWidget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AuroraWatch-MVVM.watchkitapp.AuroraWatch-MVVMWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -655,6 +835,14 @@
 			buildConfigurations = (
 				26B9236A3008F4A6007EA204 /* Debug configuration for PBXNativeTarget "AuroraWatch-MVVM Watch AppUITests" */,
 				26B9236B3008F4A6007EA204 /* Release configuration for PBXNativeTarget "AuroraWatch-MVVM Watch AppUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		26D672F130090F2B004D20EF /* Build configuration list for PBXNativeTarget "AuroraWatch-MVVMWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D672F230090F2B004D20EF /* Debug configuration for PBXNativeTarget "AuroraWatch-MVVMWidgetExtension" */,
+				26D672F330090F2B004D20EF /* Release configuration for PBXNativeTarget "AuroraWatch-MVVMWidgetExtension" */,
 			);
 			defaultConfigurationName = Release;
 		};

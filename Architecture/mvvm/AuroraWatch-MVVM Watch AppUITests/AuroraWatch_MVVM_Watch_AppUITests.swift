@@ -7,37 +7,117 @@
 
 import XCTest
 
+/// End to end flows driven in the watch simulator.
+///
+/// Every launch passes a `UITEST_STUB_SCENARIO` value that the app, in
+/// DEBUG builds only, uses to serve fixture data instead of calling NOAA,
+/// so the suite is fast, deterministic, and immune to rate limits.
 final class AuroraWatch_MVVM_Watch_AppUITests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    /// Mirrored copies of the app's accessibility identifiers. The two
+    /// targets do not share source files; if a value changes in
+    /// `AccessibilityIdentifiers.swift`, change it here as well.
+    private enum ID {
+        static let forecastList = "forecast.list"
+        static func forecastRow(at index: Int) -> String { "forecast.row.\(index)" }
+        static let emptyView = "forecast.empty"
+        static let errorView = "forecast.error"
+        static let retryButton = "forecast.error.retry"
+        static let detailView = "forecast.detail"
+        static let detailKp = "forecast.detail.kp"
+        static let stormBadge = "storm.badge"
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    /// The stub scenarios the app understands, mirrored from
+    /// `UITestForecastStub.swift`.
+    private enum Scenario: String {
+        case happy, g3, empty, error, recovers
+    }
+
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+    }
+
+    /// Launches the app serving the given stub scenario.
+    @MainActor
+    private func launchApp(scenario: Scenario) -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchEnvironment["UITEST_STUB_SCENARIO"] = scenario.rawValue
+        app.launch()
+        return app
+    }
+
+    /// Finds an element by accessibility identifier regardless of the
+    /// element type SwiftUI happened to expose it as.
+    @MainActor
+    private func element(_ identifier: String, in app: XCUIApplication) -> XCUIElement {
+        app.descendants(matching: .any).matching(identifier: identifier).firstMatch
     }
 
     @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testListRendersStubbedForecast() throws {
+        let app = launchApp(scenario: .happy)
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // XCUIAutomation Documentation
-        // https://developer.apple.com/documentation/xcuiautomation
+        XCTAssertTrue(element(ID.forecastRow(at: 0), in: app).waitForExistence(timeout: 10))
+        XCTAssertTrue(element(ID.forecastRow(at: 3), in: app).exists)
+        XCTAssertTrue(app.staticTexts["Kp 6.67"].exists)
+    }
+
+    @MainActor
+    func testNavigatesToDetailAndBack() throws {
+        let app = launchApp(scenario: .happy)
+
+        let firstRow = element(ID.forecastRow(at: 0), in: app)
+        XCTAssertTrue(firstRow.waitForExistence(timeout: 10))
+        firstRow.tap()
+
+        let kpValue = element(ID.detailKp, in: app)
+        XCTAssertTrue(kpValue.waitForExistence(timeout: 5))
+        XCTAssertEqual(kpValue.label, "Kp 2.33")
+
+        app.navigationBars.buttons.firstMatch.tap()
+        XCTAssertTrue(element(ID.forecastRow(at: 0), in: app).waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testStormBadgeShownForG3Window() throws {
+        let app = launchApp(scenario: .g3)
+
+        XCTAssertTrue(element(ID.forecastRow(at: 1), in: app).waitForExistence(timeout: 10))
+        XCTAssertTrue(app.staticTexts["G3"].exists)
+
+        element(ID.forecastRow(at: 1), in: app).tap()
+        let kpValue = element(ID.detailKp, in: app)
+        XCTAssertTrue(kpValue.waitForExistence(timeout: 5))
+        XCTAssertEqual(kpValue.label, "Kp 7.33")
+    }
+
+    @MainActor
+    func testEmptyForecastShowsEmptyState() throws {
+        let app = launchApp(scenario: .empty)
+
+        XCTAssertTrue(element(ID.emptyView, in: app).waitForExistence(timeout: 10))
+    }
+
+    @MainActor
+    func testErrorStateOffersRetryAndRecovers() throws {
+        let app = launchApp(scenario: .recovers)
+
+        XCTAssertTrue(element(ID.errorView, in: app).waitForExistence(timeout: 10))
+
+        let retry = app.buttons[ID.retryButton]
+        XCTAssertTrue(retry.exists)
+        retry.tap()
+
+        XCTAssertTrue(element(ID.forecastRow(at: 0), in: app).waitForExistence(timeout: 10))
     }
 
     @MainActor
     func testLaunchPerformance() throws {
-        // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
-            XCUIApplication().launch()
+            let app = XCUIApplication()
+            app.launchEnvironment["UITEST_STUB_SCENARIO"] = Scenario.happy.rawValue
+            app.launch()
         }
     }
 }
