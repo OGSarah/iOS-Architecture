@@ -37,9 +37,6 @@
 			exceptions = (
 				26D6736930091E88004D20EF /* Exceptions for "StoneMill-MVVMC" folder in "StoneMill-MVVMC" target */,
 			);
-			explicitFolders = (
-				Resources/Materials,
-			);
 			path = "StoneMill-MVVMC";
 			sourceTree = "<group>";
 		};

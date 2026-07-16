@@ -14,7 +14,7 @@
 			<array>
 				<dict>
 					<key>UISceneInitialImmersionStyle</key>
-					<string>UIImmersionStyleMixed</string>
+					<string>UIImmersionStyleFull</string>
 				</dict>
 			</array>
 		</dict>
