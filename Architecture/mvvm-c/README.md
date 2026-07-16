@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="Screenshots/AppIcon.png" width="300" style="border: 3px solid white; border-radius: 15px; vertical-align: middle; margin-right: 20px;">
+  <img src="Screenshots/AppIcon.png" width="600" style="border: 3px solid white; border-radius: 15px; vertical-align: middle; margin-right: 30px;">
   <h1 style="display: inline-block; vertical-align: middle;">StoneMill-MVVMC</h1>
 </div>
 
