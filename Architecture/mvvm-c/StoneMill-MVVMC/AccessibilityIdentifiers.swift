@@ -1,3 +1,10 @@
+//
+//  AccessibilityIdentifiers.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import Foundation
 
 /// The accessibility identifiers shared by the views and the UI tests.

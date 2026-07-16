@@ -1,3 +1,10 @@
+//
+//  SceneOpening.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import SwiftUI
 
 /// The result of asking the system to open an immersive space, mirrored into

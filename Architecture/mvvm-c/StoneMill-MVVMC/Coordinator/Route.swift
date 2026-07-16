@@ -1,3 +1,10 @@
+//
+//  Route.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import Foundation
 
 /// The identifiers of the app's three scenes, used both by the scene

@@ -1,3 +1,10 @@
+//
+//  GameState.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import Foundation
 
 /// One of the two sides in a match.

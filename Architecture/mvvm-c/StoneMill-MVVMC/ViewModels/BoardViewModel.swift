@@ -1,3 +1,10 @@
+//
+//  BoardViewModel.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import Foundation
 import Observation
 

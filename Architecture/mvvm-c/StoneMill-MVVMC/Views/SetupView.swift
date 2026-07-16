@@ -1,3 +1,10 @@
+//
+//  SetupView.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import SwiftUI
 
 /// The setup window: choose an opponent, name the players, read the rules

@@ -1,3 +1,10 @@
+//
+//  MatchHistoryView.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import SwiftUI
 
 /// The finished match list, pushed inside the setup window.
