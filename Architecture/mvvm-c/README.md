@@ -40,6 +40,40 @@ A spatial implementation of Nine Men's Morris, a board game carved into temples,
 - An **immersive space** placing you inside three locations where the board has actually been found carved, with the real board rendered in situ
 - A full rules engine with no network layer at all, and no `URLSession` anywhere in the project
 
+## The game
+ 
+Nine Men's Morris, also called Mill, Merels, or Mühle. It is one of the oldest board games still played, and one of the best evidenced: the board turns up carved into the roofing slabs of the temple at Kurna in Egypt, cut into the deck planks of the Gokstad Viking ship, and worn into cloister benches across medieval Europe, where bored monks apparently played it for centuries. It was popular enough in Elizabethan England that Shakespeare could reference the nine men's morris in *A Midsummer Night's Dream* and expect the audience to know it. The rules below are the standard modern form.
+ 
+The board is 24 points arranged as three concentric squares, connected by four lines running through the midpoints of their sides. Each player has nine pieces. Pieces sit on points, not in spaces.
+ 
+**The goal**
+ 
+Reduce your opponent to two pieces, or leave them with no legal move. Either one wins.
+ 
+**A mill**
+ 
+Three of your own pieces in an unbroken straight line along one of the board's 16 lines. Forming a mill lets you immediately remove one enemy piece from the board, permanently.
+ 
+**The three phases**
+ 
+| Phase | Begins when | What you may do |
+|---|---|---|
+| Placing | The game starts | Take turns placing one piece on any empty point until all 18 are down |
+| Moving | Both players have placed all nine | Slide one piece per turn to an adjacent empty point along a line |
+| Flying | You are reduced to exactly three pieces | Move one piece per turn to *any* empty point on the board |
+ 
+Flying is per player, not per game. One side can be flying while the other is still sliding, and that asymmetry is usually what decides the endgame.
+ 
+**The rules that make it interesting**
+ 
+These four are the ones that carry all the strategy, and they are the reason this game is worth modeling rather than, say, tic-tac-toe:
+ 
+- **A mill you re-form still counts.** Slide a piece out of a mill and back in on your next turn, and the mill forms again and captures again. A pair of mills sharing a piece is a "double mill" or windmill, and it removes one enemy piece every single turn. Building one is usually the whole game plan.
+- **You may not capture a piece that is in a mill,** unless every one of your opponent's pieces is in a mill. This protects a completed mill from being dismantled and makes the exception genuinely rare and genuinely decisive.
+- **Being blocked is a loss, not a stalemate.** If it is your turn and you have no legal move, you lose. There is no draw by that route.
+- **Mills only capture on the turn they form.** A standing mill does nothing. It has to be broken and rebuilt to pay out again, which is what makes the moving phase a constant negotiation between holding a mill and using it.
+That set of rules is a compact, closed, deterministic state machine with no randomness and no hidden information, which is exactly what makes `RulesEngine` worth testing hard and worth keeping entirely free of the UI.
+
 ## Screenshots
 
 | | Window | Volume |
