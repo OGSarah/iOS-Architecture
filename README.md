@@ -6,12 +6,21 @@ Each folder is a standalone project you can open, run, and study on its own.
 
 ## What each project includes
 
-Every example follows the same baseline so comparisons are fair:
+Every project is built to the same standard, but not to the same shape. Early
+examples share a common feature (a list, a detail screen, a network call) so the
+architectures can be compared directly. Later ones deliberately break that mold.
+Some are visionOS or watchOS only, some have no network layer at all, some are
+built around a framework chosen specifically because the pattern has something
+to say about it. 
 
-- A small but realistic feature, usually a list screen, a detail screen, and a network call
-- Unit tests for the core logic
-- A short README explaining the pattern, when to use it, and its tradeoffs
-- No third party dependencies unless the pattern specifically calls for one (for example, a Redux style project may use a lightweight state container library)
+What every project does share:
+
+- A real feature with real constraints, not a to-do list.
+- Unit tests for the core logic, and no test that touches the live network.
+- A short README explaining the pattern, when to use it, and its tradeoffs.
+- No third party dependencies unless the pattern specifically calls for one (for
+  example, a Redux style project may use a lightweight state container library).
+- A stated platform and UI framework, since those choices are part of the tradeoff.
 
 ## Project index
 
