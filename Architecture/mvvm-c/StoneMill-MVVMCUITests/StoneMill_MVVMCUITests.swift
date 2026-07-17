@@ -1,3 +1,10 @@
+//
+//  StoneMill_MVVMCUITests.swift
+//  StoneMill-MVVMC
+//
+//  Created by Sarah Clark on 7/16/26.
+//
+
 import XCTest
 
 /// End to end flows driven through the app in the simulator.
@@ -8,6 +15,7 @@ import XCTest
 /// also pass `UITEST_DRIVE`, which shows a control strip of plain buttons so
 /// the scripted match runs on ViewModel intents rather than 3D hit testing.
 /// Identifiers come from `AXID`, the same file the views compile.
+@MainActor
 final class StoneMill_MVVMCUITests: XCTestCase {
 
     override func setUpWithError() throws {

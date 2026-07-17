@@ -94,7 +94,7 @@ That set of rules is a compact, closed, deterministic state machine with no rand
 |---|---|
 | Swift 6 | Language, with strict concurrency and main-actor default isolation |
 | SwiftUI | UI framework: `WindowGroup`, `ImmersiveSpace`, and the volumetric window style |
-| UIKit | UI framework: to be added |
+| UIKit | `UIColor` values feeding the RealityKit materials |
 | TabletopKit | Seats, equipment, snapping, and interaction on the board volume |
 | RealityKit | Piece and board entities, materials, and the immersive scene content |
 | Observation | `@Observable` ViewModels, no Combine |

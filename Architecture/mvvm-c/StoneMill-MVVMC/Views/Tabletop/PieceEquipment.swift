@@ -60,6 +60,7 @@ nonisolated struct PieceEquipment: EntityEquipment {
     var initialState: BaseEquipmentState
 
     /// Creates a stone for a side, starting at its rack pose on the table.
+    @MainActor
     init(color: PlayerColor, index: Int, rackPose: TableVisualState.Pose2D) {
         self.id = .piece(for: color, index: index)
         self.entity = Self.makeStoneEntity(color: color)
@@ -73,6 +74,7 @@ nonisolated struct PieceEquipment: EntityEquipment {
 
     /// Builds a stone entity, shared with the immersive in situ board so both
     /// renderers agree on what a stone looks like.
+    @MainActor
     static func makeStoneEntity(color: PlayerColor) -> Entity {
         let mesh = MeshResource.generateCylinder(height: height, radius: radius)
         var material = PhysicallyBasedMaterial()

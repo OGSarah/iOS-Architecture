@@ -83,6 +83,7 @@ nonisolated struct StoneMillTable: EntityTabletop {
     let entity: Entity
     let shape: TabletopShape
 
+    @MainActor
     init() {
         self.id = .stoneMillTable
         self.entity = Self.makeBoardEntity(
@@ -98,6 +99,7 @@ nonisolated struct StoneMillTable: EntityTabletop {
     ///
     /// Shared with the immersive view, which renders the same board carved
     /// into each excavation site.
+    @MainActor
     static func makeBoardEntity(size: Float, thickness: Float, slabColor: UIColor, grooveColor: UIColor) -> Entity {
         let root = Entity()
 
@@ -152,6 +154,7 @@ nonisolated struct PointSpot: EntityEquipment {
     var initialState: BaseEquipmentState
 
     /// Creates the spot for a board point at its pinned layout position.
+    @MainActor
     init(point: Int) {
         self.id = .pointSpot(point)
         self.entity = Self.makeSpotEntity()
@@ -167,6 +170,7 @@ nonisolated struct PointSpot: EntityEquipment {
         )
     }
 
+    @MainActor
     private static func makeSpotEntity() -> Entity {
         let root = Entity()
         var material = UnlitMaterial(color: PointSpot.idleColor)
@@ -201,6 +205,7 @@ nonisolated struct PlayerSeat: EntityTableSeat {
     var initialState: TableSeatState
 
     /// Creates a seat at a position around the table, facing its center.
+    @MainActor
     init(id: TableSeatIdentifier, position: TableVisualState.Point2D, angleDegrees: Double) {
         self.id = id
         self.entity = Entity()

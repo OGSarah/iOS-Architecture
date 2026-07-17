@@ -72,8 +72,11 @@ private struct BoardContentView: View {
                 let frame = content.convert(proxy.frame(in: .local), from: .local, to: .scene)
                 game.root.position.y = frame.min.y
                 game.sync(to: viewModel.gameState)
-                viewModel.onStateChange = { [weak game] state in
-                    game?.sync(to: state)
+                // Weak so a ViewModel that outlives this view cannot keep the
+                // dismissed volume's renderer alive.
+                weak let renderer = game
+                viewModel.onStateChange = { state in
+                    renderer?.sync(to: state)
                 }
             }
         }
