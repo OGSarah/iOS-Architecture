@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		26D1CABB300A97680082506E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26D1CA9D300A97670082506E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26D1CAA4300A97670082506E;
+			remoteInfo = "ChangeRinger-MVP";
+		};
+		26D1CAC5300A97680082506E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26D1CA9D300A97670082506E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26D1CAA4300A97670082506E;
+			remoteInfo = "ChangeRinger-MVP";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26D1CAA5300A97670082506E /* ChangeRinger-MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChangeRinger-MVP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D1CABA300A97680082506E /* ChangeRinger-MVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChangeRinger-MVPTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D1CAC4300A97680082506E /* ChangeRinger-MVPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChangeRinger-MVPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		26D1CACA300A97680082506E /* Exceptions for "ChangeRinger-MVP" folder in "ChangeRinger-MVP" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 26D1CAA4300A97670082506E /* ChangeRinger-MVP */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		26D1CAA7300A97670082506E /* ChangeRinger-MVP */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				26D1CACA300A97680082506E /* Exceptions for "ChangeRinger-MVP" folder in "ChangeRinger-MVP" target */,
+			);
+			path = "ChangeRinger-MVP";
+			sourceTree = "<group>";
+		};
+		26D1CABD300A97680082506E /* ChangeRinger-MVPTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ChangeRinger-MVPTests";
+			sourceTree = "<group>";
+		};
+		26D1CAC7300A97680082506E /* ChangeRinger-MVPUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ChangeRinger-MVPUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26D1CAA2300A97670082506E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		26D1CAB7300A97680082506E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		26D1CAC1300A97680082506E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26D1CA9C300A97670082506E = {
+			isa = PBXGroup;
+			children = (
+				26D1CAA7300A97670082506E /* ChangeRinger-MVP */,
+				26D1CABD300A97680082506E /* ChangeRinger-MVPTests */,
+				26D1CAC7300A97680082506E /* ChangeRinger-MVPUITests */,
+				26D1CAA6300A97670082506E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		26D1CAA6300A97670082506E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26D1CAA5300A97670082506E /* ChangeRinger-MVP.app */,
+				26D1CABA300A97680082506E /* ChangeRinger-MVPTests.xctest */,
+				26D1CAC4300A97680082506E /* ChangeRinger-MVPUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26D1CAA4300A97670082506E /* ChangeRinger-MVP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26D1CACB300A97680082506E /* Build configuration list for PBXNativeTarget "ChangeRinger-MVP" */;
+			buildPhases = (
+				26D1CAA1300A97670082506E /* Sources */,
+				26D1CAA2300A97670082506E /* Frameworks */,
+				26D1CAA3300A97670082506E /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				26D1CAA7300A97670082506E /* ChangeRinger-MVP */,
+			);
+			name = "ChangeRinger-MVP";
+			productName = "ChangeRinger-MVP";
+			productReference = 26D1CAA5300A97670082506E /* ChangeRinger-MVP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		26D1CAB9300A97680082506E /* ChangeRinger-MVPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26D1CAD0300A97680082506E /* Build configuration list for PBXNativeTarget "ChangeRinger-MVPTests" */;
+			buildPhases = (
+				26D1CAB6300A97680082506E /* Sources */,
+				26D1CAB7300A97680082506E /* Frameworks */,
+				26D1CAB8300A97680082506E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26D1CABC300A97680082506E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				26D1CABD300A97680082506E /* ChangeRinger-MVPTests */,
+			);
+			name = "ChangeRinger-MVPTests";
+			productName = "ChangeRinger-MVPTests";
+			productReference = 26D1CABA300A97680082506E /* ChangeRinger-MVPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		26D1CAC3300A97680082506E /* ChangeRinger-MVPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26D1CAD3300A97680082506E /* Build configuration list for PBXNativeTarget "ChangeRinger-MVPUITests" */;
+			buildPhases = (
+				26D1CAC0300A97680082506E /* Sources */,
+				26D1CAC1300A97680082506E /* Frameworks */,
+				26D1CAC2300A97680082506E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26D1CAC6300A97680082506E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				26D1CAC7300A97680082506E /* ChangeRinger-MVPUITests */,
+			);
+			name = "ChangeRinger-MVPUITests";
+			productName = "ChangeRinger-MVPUITests";
+			productReference = 26D1CAC4300A97680082506E /* ChangeRinger-MVPUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		26D1CA9D300A97670082506E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					26D1CAA4300A97670082506E = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					26D1CAB9300A97680082506E = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 26D1CAA4300A97670082506E;
+					};
+					26D1CAC3300A97680082506E = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 26D1CAA4300A97670082506E;
+					};
+				};
+			};
+			buildConfigurationList = 26D1CAA0300A97670082506E /* Build configuration list for PBXProject "ChangeRinger-MVP" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 26D1CA9C300A97670082506E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 26D1CAA6300A97670082506E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26D1CAA4300A97670082506E /* ChangeRinger-MVP */,
+				26D1CAB9300A97680082506E /* ChangeRinger-MVPTests */,
+				26D1CAC3300A97680082506E /* ChangeRinger-MVPUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26D1CAA3300A97670082506E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		26D1CAB8300A97680082506E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		26D1CAC2300A97680082506E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26D1CAA1300A97670082506E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		26D1CAB6300A97680082506E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		26D1CAC0300A97680082506E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26D1CABC300A97680082506E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26D1CAA4300A97670082506E /* ChangeRinger-MVP */;
+			targetProxy = 26D1CABB300A97680082506E /* PBXContainerItemProxy */;
+		};
+		26D1CAC6300A97680082506E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26D1CAA4300A97670082506E /* ChangeRinger-MVP */;
+			targetProxy = 26D1CAC5300A97680082506E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26D1CACC300A97680082506E /* Debug configuration for PBXNativeTarget "ChangeRinger-MVP" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChangeRinger-MVP/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ChangeRinger-MVP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26D1CACD300A97680082506E /* Release configuration for PBXNativeTarget "ChangeRinger-MVP" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChangeRinger-MVP/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ChangeRinger-MVP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		26D1CACE300A97680082506E /* Debug configuration for PBXProject "ChangeRinger-MVP" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		26D1CACF300A97680082506E /* Release configuration for PBXProject "ChangeRinger-MVP" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26D1CAD1300A97680082506E /* Debug configuration for PBXNativeTarget "ChangeRinger-MVPTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ChangeRinger-MVPTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChangeRinger-MVP.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChangeRinger-MVP";
+			};
+			name = Debug;
+		};
+		26D1CAD2300A97680082506E /* Release configuration for PBXNativeTarget "ChangeRinger-MVPTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ChangeRinger-MVPTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChangeRinger-MVP.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChangeRinger-MVP";
+			};
+			name = Release;
+		};
+		26D1CAD4300A97680082506E /* Debug configuration for PBXNativeTarget "ChangeRinger-MVPUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ChangeRinger-MVPUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ChangeRinger-MVP";
+			};
+			name = Debug;
+		};
+		26D1CAD5300A97680082506E /* Release configuration for PBXNativeTarget "ChangeRinger-MVPUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ChangeRinger-MVPUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ChangeRinger-MVP";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26D1CAA0300A97670082506E /* Build configuration list for PBXProject "ChangeRinger-MVP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D1CACE300A97680082506E /* Debug configuration for PBXProject "ChangeRinger-MVP" */,
+				26D1CACF300A97680082506E /* Release configuration for PBXProject "ChangeRinger-MVP" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		26D1CACB300A97680082506E /* Build configuration list for PBXNativeTarget "ChangeRinger-MVP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D1CACC300A97680082506E /* Debug configuration for PBXNativeTarget "ChangeRinger-MVP" */,
+				26D1CACD300A97680082506E /* Release configuration for PBXNativeTarget "ChangeRinger-MVP" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		26D1CAD0300A97680082506E /* Build configuration list for PBXNativeTarget "ChangeRinger-MVPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D1CAD1300A97680082506E /* Debug configuration for PBXNativeTarget "ChangeRinger-MVPTests" */,
+				26D1CAD2300A97680082506E /* Release configuration for PBXNativeTarget "ChangeRinger-MVPTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		26D1CAD3300A97680082506E /* Build configuration list for PBXNativeTarget "ChangeRinger-MVPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D1CAD4300A97680082506E /* Debug configuration for PBXNativeTarget "ChangeRinger-MVPUITests" */,
+				26D1CAD5300A97680082506E /* Release configuration for PBXNativeTarget "ChangeRinger-MVPUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26D1CA9D300A97670082506E /* Project object */;
+	validationLevel = 1;
+}
