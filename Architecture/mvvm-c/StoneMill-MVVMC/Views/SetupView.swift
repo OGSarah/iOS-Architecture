@@ -89,7 +89,6 @@ struct SetupView: View {
                 identifier: AXID.Setup.computerCard
             )
         }
-        .accessibilityIdentifier(AXID.Setup.opponentPicker)
     }
 
     private func opponentCard(

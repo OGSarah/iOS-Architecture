@@ -116,13 +116,13 @@ nonisolated struct Excavation: Identifiable, Equatable, Sendable {
         groundColor: ColorValue(red: 0.79, green: 0.68, blue: 0.48),
         groundRadius: 14,
         lightIntensity: 2200,
-        boardPosition: SIMD3(0, 0.72, -1.1),
+        boardPosition: SIMD3(0, 0.9, -2.2),
         boardYRotation: 0,
         boardScale: 1.0,
         boardColor: ColorValue(red: 0.78, green: 0.69, blue: 0.55),
         props: [
             // The fallen roofing slab the board is carved into.
-            Prop(shape: .box(size: SIMD3(1.4, 0.72, 0.9)), position: SIMD3(0, 0.36, -1.1), yRotation: 0.06, color: ColorValue(red: 0.76, green: 0.66, blue: 0.50), roughness: 0.95),
+            Prop(shape: .box(size: SIMD3(1.4, 0.9, 0.9)), position: SIMD3(0, 0.45, -2.2), yRotation: 0.06, color: ColorValue(red: 0.76, green: 0.66, blue: 0.50), roughness: 0.95),
             // A row of column drums to the left and right.
             Prop(shape: .cylinder(radius: 0.45, height: 2.6), position: SIMD3(-2.6, 1.3, -2.4), yRotation: 0, color: ColorValue(red: 0.80, green: 0.70, blue: 0.52), roughness: 0.9),
             Prop(shape: .cylinder(radius: 0.45, height: 3.2), position: SIMD3(2.7, 1.6, -2.8), yRotation: 0, color: ColorValue(red: 0.82, green: 0.72, blue: 0.54), roughness: 0.9),
@@ -148,23 +148,23 @@ nonisolated struct Excavation: Identifiable, Equatable, Sendable {
         groundColor: ColorValue(red: 0.16, green: 0.22, blue: 0.28),
         groundRadius: 30,
         lightIntensity: 1400,
-        boardPosition: SIMD3(0, 0.58, -1.0),
+        boardPosition: SIMD3(0, 0.83, -2.1),
         boardYRotation: 0.12,
         boardScale: 0.9,
         boardColor: ColorValue(red: 0.42, green: 0.32, blue: 0.22),
         props: [
             // Deck planking under and around the player.
-            Prop(shape: .box(size: SIMD3(0.55, 0.5, 9.0)), position: SIMD3(-0.9, 0.25, -2.0), yRotation: 0, color: ColorValue(red: 0.40, green: 0.30, blue: 0.20), roughness: 0.85),
-            Prop(shape: .box(size: SIMD3(0.55, 0.5, 9.0)), position: SIMD3(-0.3, 0.25, -2.0), yRotation: 0, color: ColorValue(red: 0.44, green: 0.33, blue: 0.22), roughness: 0.85),
-            Prop(shape: .box(size: SIMD3(0.55, 0.58, 9.0)), position: SIMD3(0.3, 0.29, -2.0), yRotation: 0, color: ColorValue(red: 0.41, green: 0.31, blue: 0.21), roughness: 0.85),
-            Prop(shape: .box(size: SIMD3(0.55, 0.5, 9.0)), position: SIMD3(0.9, 0.25, -2.0), yRotation: 0, color: ColorValue(red: 0.43, green: 0.32, blue: 0.21), roughness: 0.85),
+            Prop(shape: .box(size: SIMD3(0.55, 0.5, 9.0)), position: SIMD3(-0.9, 0.25, -2.5), yRotation: 0, color: ColorValue(red: 0.40, green: 0.30, blue: 0.20), roughness: 0.85),
+            Prop(shape: .box(size: SIMD3(0.55, 0.5, 9.0)), position: SIMD3(-0.3, 0.25, -2.5), yRotation: 0, color: ColorValue(red: 0.44, green: 0.33, blue: 0.22), roughness: 0.85),
+            Prop(shape: .box(size: SIMD3(0.55, 0.58, 9.0)), position: SIMD3(0.3, 0.29, -2.5), yRotation: 0, color: ColorValue(red: 0.41, green: 0.31, blue: 0.21), roughness: 0.85),
+            Prop(shape: .box(size: SIMD3(0.55, 0.5, 9.0)), position: SIMD3(0.9, 0.25, -2.5), yRotation: 0, color: ColorValue(red: 0.43, green: 0.32, blue: 0.21), roughness: 0.85),
             // Gunwales rising along both sides.
-            Prop(shape: .box(size: SIMD3(0.25, 1.0, 9.0)), position: SIMD3(-1.6, 0.5, -2.0), yRotation: 0, color: ColorValue(red: 0.36, green: 0.27, blue: 0.18), roughness: 0.85),
-            Prop(shape: .box(size: SIMD3(0.25, 1.0, 9.0)), position: SIMD3(1.6, 0.5, -2.0), yRotation: 0, color: ColorValue(red: 0.36, green: 0.27, blue: 0.18), roughness: 0.85),
+            Prop(shape: .box(size: SIMD3(0.25, 1.0, 9.0)), position: SIMD3(-1.6, 0.5, -2.5), yRotation: 0, color: ColorValue(red: 0.36, green: 0.27, blue: 0.18), roughness: 0.85),
+            Prop(shape: .box(size: SIMD3(0.25, 1.0, 9.0)), position: SIMD3(1.6, 0.5, -2.5), yRotation: 0, color: ColorValue(red: 0.36, green: 0.27, blue: 0.18), roughness: 0.85),
+            // The sea chest the board rests on.
+            Prop(shape: .box(size: SIMD3(0.9, 0.33, 0.5)), position: SIMD3(0, 0.665, -2.1), yRotation: 0.12, color: ColorValue(red: 0.33, green: 0.25, blue: 0.16), roughness: 0.9),
             // The mast.
-            Prop(shape: .cylinder(radius: 0.16, height: 7.0), position: SIMD3(0, 3.5, -3.4), yRotation: 0, color: ColorValue(red: 0.38, green: 0.29, blue: 0.19), roughness: 0.8),
-            // A sea chest the crew sat on.
-            Prop(shape: .box(size: SIMD3(0.9, 0.45, 0.45)), position: SIMD3(-1.0, 0.72, -1.1), yRotation: 0.2, color: ColorValue(red: 0.33, green: 0.25, blue: 0.16), roughness: 0.9),
+            Prop(shape: .cylinder(radius: 0.16, height: 7.0), position: SIMD3(0, 3.5, -4.4), yRotation: 0, color: ColorValue(red: 0.38, green: 0.29, blue: 0.19), roughness: 0.8),
         ]
     )
 
@@ -174,27 +174,27 @@ nonisolated struct Excavation: Identifiable, Equatable, Sendable {
         name: "Cloister Bench",
         era: "England, 14th century AD",
         blurb: "Boards survive worn into the stone benches of cloister walks across Europe, played by monks between offices for generations. This one is cut into the bench between two columns of the arcade.",
-        skyTop: ColorValue(red: 0.16, green: 0.15, blue: 0.14),
-        skyHorizon: ColorValue(red: 0.42, green: 0.38, blue: 0.32),
-        groundColor: ColorValue(red: 0.45, green: 0.42, blue: 0.38),
+        skyTop: ColorValue(red: 0.30, green: 0.28, blue: 0.25),
+        skyHorizon: ColorValue(red: 0.62, green: 0.55, blue: 0.44),
+        groundColor: ColorValue(red: 0.52, green: 0.49, blue: 0.44),
         groundRadius: 10,
-        lightIntensity: 900,
-        boardPosition: SIMD3(0, 0.52, -0.9),
+        lightIntensity: 3200,
+        boardPosition: SIMD3(0, 0.55, -2.2),
         boardYRotation: 0,
         boardScale: 0.8,
         boardColor: ColorValue(red: 0.58, green: 0.55, blue: 0.50),
         props: [
-            // The bench the board is worn into.
-            Prop(shape: .box(size: SIMD3(3.4, 0.52, 0.6)), position: SIMD3(0, 0.26, -0.9), yRotation: 0, color: ColorValue(red: 0.56, green: 0.53, blue: 0.48), roughness: 0.95),
-            // The arcade columns on either side of the bench.
-            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(-1.9, 1.3, -1.0), yRotation: 0, color: ColorValue(red: 0.60, green: 0.57, blue: 0.52), roughness: 0.9),
-            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(1.9, 1.3, -1.0), yRotation: 0, color: ColorValue(red: 0.60, green: 0.57, blue: 0.52), roughness: 0.9),
-            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(-3.8, 1.3, -1.0), yRotation: 0, color: ColorValue(red: 0.58, green: 0.55, blue: 0.50), roughness: 0.9),
-            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(3.8, 1.3, -1.0), yRotation: 0, color: ColorValue(red: 0.58, green: 0.55, blue: 0.50), roughness: 0.9),
+            // The bench the board is worn into, running along the arcade.
+            Prop(shape: .box(size: SIMD3(3.4, 0.55, 0.6)), position: SIMD3(0, 0.275, -2.2), yRotation: 0, color: ColorValue(red: 0.56, green: 0.53, blue: 0.48), roughness: 0.95),
+            // The arcade columns rising behind the bench.
+            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(-1.9, 1.3, -2.6), yRotation: 0, color: ColorValue(red: 0.60, green: 0.57, blue: 0.52), roughness: 0.9),
+            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(1.9, 1.3, -2.6), yRotation: 0, color: ColorValue(red: 0.60, green: 0.57, blue: 0.52), roughness: 0.9),
+            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(-3.8, 1.3, -2.6), yRotation: 0, color: ColorValue(red: 0.58, green: 0.55, blue: 0.50), roughness: 0.9),
+            Prop(shape: .cylinder(radius: 0.18, height: 2.6), position: SIMD3(3.8, 1.3, -2.6), yRotation: 0, color: ColorValue(red: 0.58, green: 0.55, blue: 0.50), roughness: 0.9),
             // The lintel the columns carry.
-            Prop(shape: .box(size: SIMD3(8.5, 0.4, 0.5)), position: SIMD3(0, 2.8, -1.0), yRotation: 0, color: ColorValue(red: 0.54, green: 0.51, blue: 0.46), roughness: 0.95),
-            // The cloister wall behind the walk.
-            Prop(shape: .box(size: SIMD3(9.0, 3.2, 0.4)), position: SIMD3(0, 1.6, 2.2), yRotation: 0, color: ColorValue(red: 0.50, green: 0.47, blue: 0.43), roughness: 0.95),
+            Prop(shape: .box(size: SIMD3(8.5, 0.4, 0.5)), position: SIMD3(0, 2.8, -2.6), yRotation: 0, color: ColorValue(red: 0.54, green: 0.51, blue: 0.46), roughness: 0.95),
+            // The garth wall seen through the arcade.
+            Prop(shape: .box(size: SIMD3(9.0, 2.6, 0.4)), position: SIMD3(0, 1.3, -5.4), yRotation: 0, color: ColorValue(red: 0.47, green: 0.44, blue: 0.40), roughness: 0.95),
         ]
     )
 }

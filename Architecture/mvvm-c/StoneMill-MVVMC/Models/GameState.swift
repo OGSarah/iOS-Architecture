@@ -254,6 +254,15 @@ nonisolated enum UITestScenario: String, CaseIterable, Sendable {
     /// The excavation space open on the cloister bench site.
     case excavationCloister
 
+    /// Whether the launch also asked for the on screen test control strip.
+    ///
+    /// UI tests pass `UITEST_DRIVE=1` so they can drive the board through
+    /// plain buttons; screenshot runs seed a scenario without it, keeping the
+    /// strip out of the pictures.
+    static var isDriving: Bool {
+        ProcessInfo.processInfo.environment["UITEST_DRIVE"] == "1"
+    }
+
     /// The scenario requested by the current process environment, if any.
     static var current: UITestScenario? {
         ProcessInfo.processInfo.environment["UITEST_SCENARIO"].flatMap(UITestScenario.init(rawValue:))

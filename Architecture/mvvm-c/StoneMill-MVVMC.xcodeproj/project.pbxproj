@@ -3,11 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 110;
+	objectVersion = 77;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		CA7643039FCF5BBC8242714E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76EF34AF42FCED5C49397D7 /* Foundation.framework */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		26D6736430091E88004D20EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26D6734430091E87004D20EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26D6734B30091E87004D20EF;
+			remoteInfo = "StoneMill-MVVMC";
+		};
+		4B49B8007F2A79D01B185D27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 26D6734430091E87004D20EF /* Project object */;
 			proxyType = 1;
@@ -19,6 +30,8 @@
 /* Begin PBXFileReference section */
 		26D6734C30091E87004D20EF /* StoneMill-MVVMC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StoneMill-MVVMC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D6736330091E88004D20EF /* StoneMill-MVVMCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StoneMill-MVVMCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8432252E361718112BC18BD6 /* StoneMill-MVVMCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StoneMill-MVVMCUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E76EF34AF42FCED5C49397D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/XROS.platform/Developer/SDKs/XROS2.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -29,13 +42,26 @@
 			);
 			target = 26D6734B30091E87004D20EF /* StoneMill-MVVMC */;
 		};
+		FD981993DE6F0E6339C20CCC /* Exceptions for "StoneMill-MVVMC" folder in "StoneMill-MVVMCUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AccessibilityIdentifiers.swift,
+			);
+			target = DB6AD51B1E71A5FCE679CEB4 /* StoneMill-MVVMCUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		0F9C2B1810A0B78B34022F58 /* StoneMill-MVVMCUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "StoneMill-MVVMCUITests";
+			sourceTree = "<group>";
+		};
 		26D6734E30091E87004D20EF /* StoneMill-MVVMC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				26D6736930091E88004D20EF /* Exceptions for "StoneMill-MVVMC" folder in "StoneMill-MVVMC" target */,
+				FD981993DE6F0E6339C20CCC /* Exceptions for "StoneMill-MVVMC" folder in "StoneMill-MVVMCUITests" target */,
 			);
 			path = "StoneMill-MVVMC";
 			sourceTree = "<group>";
@@ -50,13 +76,25 @@
 /* Begin PBXFrameworksBuildPhase section */
 		26D6734930091E87004D20EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		26D6736030091E88004D20EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D1591D906B2DDA9E76B5CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7643039FCF5BBC8242714E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -67,6 +105,8 @@
 				26D6734E30091E87004D20EF /* StoneMill-MVVMC */,
 				26D6736630091E88004D20EF /* StoneMill-MVVMCTests */,
 				26D6734D30091E87004D20EF /* Products */,
+				E865A1F14FF0A6C991B7734A /* Frameworks */,
+				0F9C2B1810A0B78B34022F58 /* StoneMill-MVVMCUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,8 +115,25 @@
 			children = (
 				26D6734C30091E87004D20EF /* StoneMill-MVVMC.app */,
 				26D6736330091E88004D20EF /* StoneMill-MVVMCTests.xctest */,
+				8432252E361718112BC18BD6 /* StoneMill-MVVMCUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B960F8822A789873D91908D7 /* visionOS */ = {
+			isa = PBXGroup;
+			children = (
+				E76EF34AF42FCED5C49397D7 /* Foundation.framework */,
+			);
+			name = visionOS;
+			sourceTree = "<group>";
+		};
+		E865A1F14FF0A6C991B7734A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B960F8822A789873D91908D7 /* visionOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,10 +149,14 @@
 			);
 			buildRules = (
 			);
+			dependencies = (
+			);
 			fileSystemSynchronizedGroups = (
 				26D6734E30091E87004D20EF /* StoneMill-MVVMC */,
 			);
 			name = "StoneMill-MVVMC";
+			packageProductDependencies = (
+			);
 			productName = "StoneMill-MVVMC";
 			productReference = 26D6734C30091E87004D20EF /* StoneMill-MVVMC.app */;
 			productType = "com.apple.product-type.application";
@@ -117,9 +178,34 @@
 				26D6736630091E88004D20EF /* StoneMill-MVVMCTests */,
 			);
 			name = "StoneMill-MVVMCTests";
+			packageProductDependencies = (
+			);
 			productName = "StoneMill-MVVMCTests";
 			productReference = 26D6736330091E88004D20EF /* StoneMill-MVVMCTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB6AD51B1E71A5FCE679CEB4 /* StoneMill-MVVMCUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 204A1A75B78834FDC6DD3C20 /* Build configuration list for PBXNativeTarget "StoneMill-MVVMCUITests" */;
+			buildPhases = (
+				877CA7FB09A28E937F0681FF /* Sources */,
+				D6D1591D906B2DDA9E76B5CC /* Frameworks */,
+				FF40C85314F431BEA413A2F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CFDEACBE2B1187337B38765 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0F9C2B1810A0B78B34022F58 /* StoneMill-MVVMCUITests */,
+			);
+			name = "StoneMill-MVVMCUITests";
+			packageProductDependencies = (
+			);
+			productName = "StoneMill-MVVMCUITests";
+			productReference = 8432252E361718112BC18BD6 /* StoneMill-MVVMCUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -156,6 +242,7 @@
 			targets = (
 				26D6734B30091E87004D20EF /* StoneMill-MVVMC */,
 				26D6736230091E88004D20EF /* StoneMill-MVVMCTests */,
+				DB6AD51B1E71A5FCE679CEB4 /* StoneMill-MVVMCUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -163,26 +250,48 @@
 /* Begin PBXResourcesBuildPhase section */
 		26D6734A30091E87004D20EF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		26D6736130091E88004D20EF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF40C85314F431BEA413A2F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		26D6734830091E87004D20EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		26D6735F30091E88004D20EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		877CA7FB09A28E937F0681FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -192,10 +301,36 @@
 			target = 26D6734B30091E87004D20EF /* StoneMill-MVVMC */;
 			targetProxy = 26D6736430091E88004D20EF /* PBXContainerItemProxy */;
 		};
+		8CFDEACBE2B1187337B38765 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "StoneMill-MVVMC";
+			target = 26D6734B30091E87004D20EF /* StoneMill-MVVMC */;
+			targetProxy = 4B49B8007F2A79D01B185D27 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		26D6736B30091E88004D20EF /* Debug configuration for PBXNativeTarget "StoneMill-MVVMC" */ = {
+		1A518522E531844E0B617979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.StoneMill-MVVMCUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_TARGET_NAME = "StoneMill-MVVMC";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Release;
+		};
+		26D6736B30091E88004D20EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -225,7 +360,7 @@
 			};
 			name = Debug;
 		};
-		26D6736C30091E88004D20EF /* Release configuration for PBXNativeTarget "StoneMill-MVVMC" */ = {
+		26D6736C30091E88004D20EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -255,7 +390,7 @@
 			};
 			name = Release;
 		};
-		26D6736D30091E88004D20EF /* Debug configuration for PBXProject "StoneMill-MVVMC" */ = {
+		26D6736D30091E88004D20EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -320,7 +455,7 @@
 			};
 			name = Debug;
 		};
-		26D6736E30091E88004D20EF /* Release configuration for PBXProject "StoneMill-MVVMC" */ = {
+		26D6736E30091E88004D20EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -378,7 +513,7 @@
 			};
 			name = Release;
 		};
-		26D6737030091E88004D20EF /* Debug configuration for PBXNativeTarget "StoneMill-MVVMCTests" */ = {
+		26D6737030091E88004D20EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -401,7 +536,7 @@
 			};
 			name = Debug;
 		};
-		26D6737130091E88004D20EF /* Release configuration for PBXNativeTarget "StoneMill-MVVMCTests" */ = {
+		26D6737130091E88004D20EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -424,35 +559,66 @@
 			};
 			name = Release;
 		};
+		59360C162A02EA2C570743C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92GSKWU9W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.StoneMill-MVVMCUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_TARGET_NAME = "StoneMill-MVVMC";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		204A1A75B78834FDC6DD3C20 /* Build configuration list for PBXNativeTarget "StoneMill-MVVMCUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A518522E531844E0B617979 /* Release */,
+				59360C162A02EA2C570743C3 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		26D6734730091E87004D20EF /* Build configuration list for PBXProject "StoneMill-MVVMC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				26D6736D30091E88004D20EF /* Debug configuration for PBXProject "StoneMill-MVVMC" */,
-				26D6736E30091E88004D20EF /* Release configuration for PBXProject "StoneMill-MVVMC" */,
+				26D6736D30091E88004D20EF /* Debug */,
+				26D6736E30091E88004D20EF /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		26D6736A30091E88004D20EF /* Build configuration list for PBXNativeTarget "StoneMill-MVVMC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				26D6736B30091E88004D20EF /* Debug configuration for PBXNativeTarget "StoneMill-MVVMC" */,
-				26D6736C30091E88004D20EF /* Release configuration for PBXNativeTarget "StoneMill-MVVMC" */,
+				26D6736B30091E88004D20EF /* Debug */,
+				26D6736C30091E88004D20EF /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		26D6736F30091E88004D20EF /* Build configuration list for PBXNativeTarget "StoneMill-MVVMCTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				26D6737030091E88004D20EF /* Debug configuration for PBXNativeTarget "StoneMill-MVVMCTests" */,
-				26D6737130091E88004D20EF /* Release configuration for PBXNativeTarget "StoneMill-MVVMCTests" */,
+				26D6737030091E88004D20EF /* Debug */,
+				26D6737130091E88004D20EF /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
 	rootObject = 26D6734430091E87004D20EF /* Project object */;
-	validationLevel = 1;
 }

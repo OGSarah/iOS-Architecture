@@ -89,7 +89,11 @@ struct AppCoordinatorTests {
 
         await coordinator.showExcavation(siteID: "kurna")
 
-        #expect(spy.events == [.dismissWindow("board"), .openImmersiveSpace("excavation")])
+        #expect(spy.events == [
+            .dismissWindow("board"),
+            .openImmersiveSpace("excavation"),
+            .dismissWindow("setup"),
+        ])
         #expect(coordinator.route == .excavation("kurna"))
         #expect(coordinator.activeExcavationViewModel?.currentSite.id == "kurna")
     }

@@ -98,7 +98,7 @@ private struct BoardContentView: View {
         }
         #if DEBUG
         .ornament(attachmentAnchor: .scene(.back)) {
-            if UITestScenario.current != nil {
+            if UITestScenario.isDriving {
                 UITestControlStrip(viewModel: viewModel)
             }
         }
@@ -156,7 +156,6 @@ private struct BoardContentView: View {
         .padding(26)
         .frame(maxWidth: 460)
         .glassBackgroundEffect()
-        .accessibilityIdentifier(AXID.Board.resultsCard)
     }
 }
 

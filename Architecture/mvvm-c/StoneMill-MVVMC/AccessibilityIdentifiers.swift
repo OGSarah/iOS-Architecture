@@ -15,7 +15,6 @@ nonisolated enum AXID {
 
     /// Identifiers on the setup window.
     nonisolated enum Setup {
-        static let opponentPicker = "setup.opponentPicker"
         static let hotSeatCard = "setup.opponent.hotSeat"
         static let computerCard = "setup.opponent.computer"
         static let lightName = "setup.name.light"
@@ -37,7 +36,6 @@ nonisolated enum AXID {
         static let status = "board.status"
         static let resetButton = "board.reset"
         static let excavationButton = "board.excavation"
-        static let resultsCard = "board.results"
 
         /// The debug control strip button that taps a board point.
         static func point(_ index: Int) -> String { "board.point.\(index)" }
@@ -48,7 +46,6 @@ nonisolated enum AXID {
 
     /// Identifiers on the immersive excavation space.
     nonisolated enum Excavation {
-        static let panel = "excavation.panel"
         static let returnButton = "excavation.return"
 
         /// The site switcher button for a given site identifier.

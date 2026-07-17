@@ -41,8 +41,11 @@ private struct ExcavationContentView: View {
             content.add(root)
             SiteBuilder.build(site: viewModel.currentSite, boardPoints: viewModel.boardPoints, in: root)
             if let panel = attachments.entity(for: "panel") {
-                panel.position = SIMD3(0.85, 1.25, -1.15)
-                panel.look(at: SIMD3(0, 1.4, 0), from: panel.position, relativeTo: nil)
+                // Off to the right of the board, yawed so its face (+z)
+                // points back at the viewer.
+                panel.position = SIMD3(0.95, 1.35, -1.35)
+                let toViewer = -panel.position
+                panel.orientation = simd_quatf(angle: atan2(toViewer.x, toViewer.z), axis: SIMD3(0, 1, 0))
                 content.add(panel)
             }
         } update: { content, _ in
@@ -101,7 +104,6 @@ private struct ExcavationPanel: View {
         }
         .padding(24)
         .glassBackgroundEffect()
-        .accessibilityIdentifier(AXID.Excavation.panel)
     }
 }
 

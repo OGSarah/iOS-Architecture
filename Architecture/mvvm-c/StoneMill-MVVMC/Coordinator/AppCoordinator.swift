@@ -60,6 +60,9 @@ final class AppCoordinator {
     func attachSceneOpenerIfNeeded(_ opener: any SceneOpening) {
         guard sceneOpener == nil else { return }
         sceneOpener = opener
+        #if DEBUG
+        applyUITestScenarioIfNeeded()
+        #endif
     }
 
     // MARK: ViewModel factories
@@ -151,6 +154,10 @@ final class AppCoordinator {
         activeExcavationViewModel = makeExcavationViewModel(siteID: siteID)
         switch await sceneOpener.openImmersiveSpace(id: SceneID.excavation.rawValue) {
         case .opened:
+            // Full immersion: the setup window would float inside the site,
+            // so it goes too. Returning reopens it.
+            expectedDismissals.append(.setup)
+            sceneOpener.dismissWindow(id: SceneID.setup.rawValue)
             route = .excavation(siteID)
         case .userCancelled, .error:
             activeExcavationViewModel = nil
@@ -212,7 +219,9 @@ final class AppCoordinator {
     /// a flow without shipping the fixtures.
     func applyUITestScenarioIfNeeded() {
         #if DEBUG
-        guard !appliedScenario, let scenario = UITestScenario.current else { return }
+        // Wait for the scene opener: whichever of the installer or the setup
+        // scene's task runs second will find both in place and apply once.
+        guard sceneOpener != nil, !appliedScenario, let scenario = UITestScenario.current else { return }
         appliedScenario = true
         switch scenario {
         case .freshSetup:
