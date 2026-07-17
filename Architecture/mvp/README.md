@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="Screenshots/AppIcon.png" width="600" style="border: 3px solid white; border-radius: 15px; vertical-align: middle; margin-right: 30px;">
+  <img src="Screenshots/AppIcon.png" width="300" style="border: 3px solid white; border-radius: 15px; vertical-align: middle; margin-right: 30px;">
   <h1 style="display: inline-block; vertical-align: middle;">ChangeRinger-MVP</h1>
 </div>
 
@@ -24,11 +24,11 @@ In a screen that renders a struct and a couple of buttons, MVP looks like MVVM w
 
 A document based app removes that argument. `UIDocument` is not a value you render. It is a live object with a lifecycle you do not control:
 
-- Opening is asynchronous and can fail, and the file may be a placeholder that has not downloaded yet
-- Saving is not something you call, it is something the system decides to do, on its own schedule, by asking you for a snapshot at an arbitrary moment
-- The document changes state underneath you: `.editingDisabled`, `.savingError`, `.inConflict`, `.closed`, each arriving as a notification rather than a return value
-- A conflict means two real versions of the user's work exist at once, and something has to present that choice and then resolve it
-- The user can rename, move, or delete the file from the browser, from Files, or from another device, while your editor is on screen
+- Opening is asynchronous and can fail, and the file may be a placeholder that has not downloaded yet.
+- Saving is not something you call, it is something the system decides to do, on its own schedule, by asking you for a snapshot at an arbitrary moment.
+- The document changes state underneath you: `.editingDisabled`, `.savingError`, `.inConflict`, `.closed`, each arriving as a notification rather than a return value.
+- A conflict means two real versions of the user's work exist at once, and something has to present that choice and then resolve it.
+- The user can rename, move, or delete the file from the browser, from Files, or from another device, while your editor is on screen.
 
 That is a stateful, asynchronous, failure-prone flow driven entirely by things that are not the user tapping. A view controller handed that job ends up as a pile of notification observers with layout code between them. This project puts all of it behind one `TouchEditorPresenter` and one `DocumentStoring` seam, and the view controller stays a set of outlets and forwarding methods.
 
@@ -36,12 +36,12 @@ That is a stateful, asynchronous, failure-prone flow driven entirely by things t
 
 A change ringing composition editor, for the English tower bell tradition of ringing permutations rather than tunes:
 
-- A **document browser** for creating, renaming, and opening `.touch` compositions, backed by the system browser and iCloud Drive
-- An **editor** showing the touch expanded row by row as a scrolling grid, with the blue line of a chosen bell traced through it
-- A **notation bar** for editing the underlying place notation directly, and a call strip for inserting bobs and singles at lead ends
-- A **truth check** that runs on every edit and marks the exact row where a composition repeats itself
-- **Playback** of the row sequence through AVAudioEngine, at a real ringing pace, so a composition can be heard rather than only read
-- A full ringing engine with no network layer at all, and no `URLSession` anywhere in the project
+- A **document browser** for creating, renaming, and opening `.touch` compositions, backed by the system browser and iCloud Drive.
+- An **editor** showing the touch expanded row by row as a scrolling grid, with the blue line of a chosen bell traced through it.
+- A **notation bar** for editing the underlying place notation directly, and a call strip for inserting bobs and singles at lead ends.
+- A **truth check** that runs on every edit and marks the exact row where a composition repeats itself.
+- **Playback** of the row sequence through AVAudioEngine, at a real ringing pace, so a composition can be heard rather than only read.
+- A full ringing engine with no network layer at all, and no `URLSession` anywhere in the project.
 
 ## The domain
 
@@ -81,17 +81,14 @@ That set of rules is a compact, closed, deterministic state machine with no rand
 
 ## Screenshots
 
-| | Browser | Editor |
+| Screen | Light | Dark |
 |---|---|---|
-| **Documents and rows** | <img src="Screenshots/DocumentBrowser.png" width="250"> | <img src="Screenshots/TouchEditor.png" width="250"> |
-
-| | Blue line | Truth failure |
-|---|---|---|
-| **Reading a touch** | <img src="Screenshots/BlueLine.png" width="250"> | <img src="Screenshots/FalseRow.png" width="250"> |
-
-| | Calls | Conflict |
-|---|---|---|
-| **Editing and lifecycle** | <img src="Screenshots/CallStrip.png" width="250"> | <img src="Screenshots/ConflictResolution.png" width="250"> |
+| **Document browser** | <img src="Screenshots/DocumentBrowser-Light.png" width="250"> | <img src="Screenshots/DocumentBrowser-Dark.png" width="250"> |
+| **Touch editor** | <img src="Screenshots/TouchEditor-Light.png" width="250"> | <img src="Screenshots/TouchEditor-Dark.png" width="250"> |
+| **Blue line** | <img src="Screenshots/BlueLine-Light.png" width="250"> | <img src="Screenshots/BlueLine-Dark.png" width="250"> |
+| **Truth failure** | <img src="Screenshots/FalseRow-Light.png" width="250"> | <img src="Screenshots/FalseRow-Dark.png" width="250"> |
+| **Call strip** | <img src="Screenshots/CallStrip-Light.png" width="250"> | <img src="Screenshots/CallStrip-Dark.png" width="250"> |
+| **Conflict resolution** | <img src="Screenshots/ConflictResolution-Light.png" width="250"> | <img src="Screenshots/ConflictResolution-Dark.png" width="250"> |
 
 ## Built with
 
@@ -250,10 +247,10 @@ MVP's cost is real and worth naming: the view protocol is written by hand, it gr
 
 ## When to use MVP
 
-- Screens driven by something other than the user: document lifecycles, background state, hardware, anything that arrives as a notification
-- UIKit codebases, where a passive view protocol fits the view controller's shape better than a bindings layer bolted on
-- Teams that want the exact sequence of UI updates asserted, not just the final state
-- Migrations, where a Presenter can be extracted from a large view controller one method at a time without rewriting the view
+- Screens driven by something other than the user: document lifecycles, background state, hardware, anything that arrives as a notification.
+- UIKit codebases, where a passive view protocol fits the view controller's shape better than a bindings layer bolted on.
+- Teams that want the exact sequence of UI updates asserted, not just the final state.
+- Migrations, where a Presenter can be extracted from a large view controller one method at a time without rewriting the view.
 
 ## When to avoid it
 
