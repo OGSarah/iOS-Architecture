@@ -264,17 +264,17 @@ Every layer is covered, and nothing in the suite requires a device, a file, or a
 
 **Unit tests (Swift Testing)**
 
-- **Ringing engine**: the whole point of choosing this domain. Parameterized cases across four methods and four stages, the full extent of Plain Bob Minor expanding to 720 distinct rows, calls only being legal at lead ends, and every change moving each bell at most one place. Rows are written in their natural notation in `TestHelpers`, so a test reads like a line of ringing.
-- **Truth checker**: a true touch, a touch that repeats a row at position 340, a touch that never comes round, and a touch that comes round early. The reported failure index is asserted, not just the boolean.
-- **Place notation**: parsing `X16X16X16X12`, rejecting notation that names a place twice, and the round trip back to a string.
-- **TouchEditorPresenter**: built with `SpyTouchEditorView` and `StubDocumentStore`, then driven through the same methods the view controller calls. Asserts the exact commands sent, in order: that inserting a bob triggers one `display(rows:)` and no truth banner when the result is true, that an illegal call triggers a banner and leaves the rows untouched, and that opening a document that throws produces an error state rather than an empty grid.
+- **Ringing engine**: the whole point of choosing this domain. Parameterized cases across four methods and four stages, the sixty-row plain course of Plain Bob Minor expanding to distinct true rows that come round, a bobbed touch that stays true and comes round, calls being legal only at lead ends, and every change moving each bell at most one place. Rows are written in their natural notation in `TestHelpers`, so a test reads like a line of ringing.
+- **Truth checker**: a true touch, a touch that repeats a row (its exact false-row index asserted), a touch that never comes round, and a touch that comes round early, plus truth holding across a full extent of 720 distinct rows. The reported failure index is asserted, not just the boolean.
+- **Place notation**: parsing `X16X16X16X16X16X12`, rejecting notation that names a place twice, and the round trip back to a string.
+- **TouchEditorPresenter**: built with `SpyTouchEditorView` and `StubDocumentStore`, then driven through the same methods the view controller calls. Asserts the exact commands sent, in order: that inserting a bob triggers one `display(rows:)` and no truth banner when the result is true, that an illegal call (one placed anywhere but a lead end) triggers an error message and leaves the rows untouched, and that opening a document that throws produces an error state rather than an empty grid.
 - **Document lifecycle**: `StubDocumentStore` fires `.savingError` and `.inConflict` on command, and the tests assert the Presenter's response to each. Deleting the document underneath the editor is a test, not a crash report.
 
 That last suite is the payoff. In the MVC project, a save failure is a notification observer inside a view controller and is only reachable by breaking a real file on a real simulator. Here it is a closure call on a stub, and it runs in milliseconds.
 
 **UI tests (XCUIAutomation)**
 
-Four end-to-end flows: creating a document from the browser, editing notation and seeing the rows regenerate, inserting a bob and hitting a truth failure, and playing a short touch through to rounds. Each launch passes a `UITEST_SCENARIO` environment value that the app (in DEBUG builds only) uses to seed a fixture `Touch`, so no test has to build a 720 row extent by tapping.
+Four end-to-end flows: opening a composition in the editor, changing the method and seeing the rows regenerate, inserting a bob and hitting a truth failure, and starting playback. Each launch passes a `UITEST_SCENARIO` environment value that the app (in DEBUG builds only) uses to open the editor directly on a seeded fixture `Touch`, bypassing the system document browser, whose asynchronous, cross-process presentation is too non-deterministic to drive reliably. The browser flow itself is exercised by hand and in the screenshots above.
 
 ## Tradeoffs summary
 
