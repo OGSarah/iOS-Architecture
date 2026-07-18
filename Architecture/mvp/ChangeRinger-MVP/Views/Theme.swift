@@ -39,6 +39,16 @@ enum Theme {
             : UIColor(red: 0.79, green: 0.62, blue: 0.24, alpha: 1)
     }
 
+    /// A muted, desaturated gold for disabled controls.
+    ///
+    /// It stays light enough that dark navy text remains legible on top, so a disabled call
+    /// button reads clearly as inactive without vanishing against the navy bar behind it.
+    static let goldMuted = UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.58, green: 0.52, blue: 0.38, alpha: 1)
+            : UIColor(red: 0.82, green: 0.74, blue: 0.55, alpha: 1)
+    }
+
     /// The primary text colour shown on navy: near-white for strong contrast.
     static let primaryText = UIColor { traits in
         traits.userInterfaceStyle == .dark

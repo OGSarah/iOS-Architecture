@@ -17,6 +17,14 @@ final class CallStripView: UIView {
     /// Called with the chosen call when a button is tapped.
     var onCall: ((Call) -> Void)?
 
+    /// Whether a lead end is selected, so calls read as active.
+    ///
+    /// This drives only the buttons' colour, not their `isEnabled` flag: a disabled
+    /// `UIButton` is dimmed to a low opacity by UIKit, which made the labels vanish against
+    /// the navy bar. The view controller already ignores taps until a lead end is selected,
+    /// so the buttons can stay full-strength and legible while this flag mutes their fill.
+    private var isActive = false
+
     /// The prompt shown above the buttons.
     private let promptLabel = UILabel()
 
@@ -33,12 +41,12 @@ final class CallStripView: UIView {
         setUp()
     }
 
-    /// Enables or disables the buttons and updates the prompt to match.
+    /// Reflects whether a lead end is selected, updating the buttons' colour and the prompt.
     ///
     /// - Parameter enabled: Whether a lead end is selected and calls can be placed.
     func setEnabled(_ enabled: Bool) {
-        buttonStack.arrangedSubviews.forEach { ($0 as? UIButton)?.isEnabled = enabled }
-        buttonStack.alpha = enabled ? 1 : 0.4
+        isActive = enabled
+        buttonStack.arrangedSubviews.forEach { ($0 as? UIButton)?.setNeedsUpdateConfiguration() }
         promptLabel.text = enabled
             ? "Place a call at the selected lead end"
             : "Select a lead end to place a call"
@@ -82,11 +90,13 @@ final class CallStripView: UIView {
     }
 
     /// Builds one styled call button.
+    ///
+    /// The fill colour is resolved in a `configurationUpdateHandler` from `isActive`: full
+    /// gold when a lead end is selected, a muted gold otherwise. Both keep dark navy text
+    /// legible because the button stays at full opacity — it is never `isEnabled = false`.
     private func makeButton(for call: Call) -> UIButton {
         var configuration = UIButton.Configuration.filled()
         configuration.title = call.name
-        configuration.baseBackgroundColor = Theme.gold
-        configuration.baseForegroundColor = Theme.navy
         configuration.cornerStyle = .large
         configuration.buttonSize = .large
 
@@ -95,6 +105,13 @@ final class CallStripView: UIView {
         button.accessibilityIdentifier = identifier(for: call)
         button.accessibilityLabel = "\(call.name) call"
         button.addAction(UIAction { [weak self] _ in self?.onCall?(call) }, for: .primaryActionTriggered)
+
+        button.configurationUpdateHandler = { [weak self] button in
+            var updated = button.configuration
+            updated?.baseForegroundColor = Theme.navy
+            updated?.baseBackgroundColor = (self?.isActive ?? false) ? Theme.gold : Theme.goldMuted
+            button.configuration = updated
+        }
         return button
     }
 
