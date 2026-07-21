@@ -81,14 +81,14 @@ That set of rules is a compact, closed, deterministic state machine with no rand
 
 ## Screenshots
 
-| Screen | Light | Dark |
-|---|---|---|
-| **Document browser** | <img src="Screenshots/DocumentBrowser-Light.png" width="250"> | <img src="Screenshots/DocumentBrowser-Dark.png" width="250"> |
-| **Touch editor** | <img src="Screenshots/TouchEditor-Light.png" width="250"> | <img src="Screenshots/TouchEditor-Dark.png" width="250"> |
-| **Blue line** | <img src="Screenshots/BlueLine-Light.png" width="250"> | <img src="Screenshots/BlueLine-Dark.png" width="250"> |
-| **Truth failure** | <img src="Screenshots/FalseRow-Light.png" width="250"> | <img src="Screenshots/FalseRow-Dark.png" width="250"> |
-| **Call strip** | <img src="Screenshots/CallStrip-Light.png" width="250"> | <img src="Screenshots/CallStrip-Dark.png" width="250"> |
-| **Conflict resolution** | <img src="Screenshots/ConflictResolution-Light.png" width="250"> | <img src="Screenshots/ConflictResolution-Dark.png" width="250"> |
+| Screen | Dark |
+|---|---|
+| **Document browser** | <img src="Screenshots/DocumentBrowser-Dark.png" width="250"> |
+| **Touch editor** | <img src="Screenshots/TouchEditor-Dark.png" width="250"> |
+| **Blue line** | <img src="Screenshots/BlueLine-Dark.png" width="250"> |
+| **Truth failure** | <img src="Screenshots/FalseRow-Dark.png" width="250"> |
+| **Call strip** | <img src="Screenshots/CallStrip-Dark.png" width="250"> |
+| **Conflict resolution** | <img src="Screenshots/ConflictResolution-Dark.png" width="250"> |
 
 ## Built with
 
