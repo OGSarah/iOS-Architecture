@@ -33,7 +33,7 @@ Every pattern and topic in the repository structure above, in one place. Items w
 | MVC | An iOS GitHub repository browser in UIKit: a list of a user's public repos backed by a diffable data source, a detail screen with stars, forks, language, and a relative updated line, pull to refresh, and an error alert with retry. | [GitHubBrowser-MVC](Architecture/mvc) |
 | MVVM | An independent watchOS aurora forecast app on NOAA SWPC data: three days of Kp windows color coded by storm level, a detail screen per window, and a complication sharing the app's model layer. | [AuroraWatch-MVVM](Architecture/mvvm) |
 | MVVM-C | A visionOS spatial Nine Men's Morris game on TabletopKit and RealityKit: a setup window, a board volume with all three game phases and mill capture, and an immersive space placing the board in three historical excavation sites. | [StoneMill-MVVMC](Architecture/mvvm-c) |
-| MVP | An iOS 27 Document App using UIKit...Add more later | [ChangeRinger-MVP](Architecture/mvp) |
+| MVP | An iOS document based change ringing composition editor in UIKit on `UIDocument`: a system browser over `.touch` files, a row by row grid tracing a chosen bell's blue line, a notation bar and call strip for inserting bobs and singles at lead ends, a truth check that marks any repeated row, and AVAudioEngine playback of the row sequence. | [ChangeRinger-MVP](Architecture/mvp) |
 | VIPER | Splits a screen into View, Interactor, Presenter, Entity, and Router | Not yet added |
 | Clean Swift (VIP) | Clean Architecture adapted for iOS with a unidirectional VIP cycle | Not yet added |
 | Redux / TCA style | Centralized, predictable state management for complex screens | Not yet added |
