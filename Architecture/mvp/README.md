@@ -81,14 +81,13 @@ That set of rules is a compact, closed, deterministic state machine with no rand
 
 ## Screenshots
 
-| Screen | Dark |
-|---|---|
-| **Document browser** | <img src="Screenshots/DocumentBrowser-Dark.png" width="250"> |
-| **Touch editor** | <img src="Screenshots/TouchEditor-Dark.png" width="250"> |
-| **Blue line** | <img src="Screenshots/BlueLine-Dark.png" width="250"> |
-| **Truth failure** | <img src="Screenshots/FalseRow-Dark.png" width="250"> |
-| **Call strip** | <img src="Screenshots/CallStrip-Dark.png" width="250"> |
-| **Conflict resolution** | <img src="Screenshots/ConflictResolution-Dark.png" width="250"> |
+| Document browser | Touch editor | Blue line |
+|---|---|---|
+| <img src="Screenshots/DocumentBrowser-Dark.png" width="250"> | <img src="Screenshots/TouchEditor-Dark.png" width="250"> | <img src="Screenshots/BlueLine-Dark.png" width="250"> |
+
+| Truth failure | Call strip | Conflict resolution |
+|---|---|---|
+| <img src="Screenshots/FalseRow-Dark.png" width="250"> | <img src="Screenshots/CallStrip-Dark.png" width="250"> | <img src="Screenshots/ConflictResolution-Dark.png" width="250"> |
 
 ## Built with
 
