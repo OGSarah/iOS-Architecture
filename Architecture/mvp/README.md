@@ -36,7 +36,7 @@ That is a stateful, asynchronous, failure-prone flow driven entirely by things t
 
 A change ringing composition editor, for the English tower bell tradition of ringing permutations rather than tunes:
 
-- A **document browser** for creating, renaming, and opening `.touch` compositions, backed by the system browser and iCloud Drive.
+- A **document browser** for creating, renaming, and opening `.touch` compositions, backed by the system document browser.
 - An **editor** showing the touch expanded row by row as a scrolling grid, with the blue line of a chosen bell traced through it.
 - A **notation bar** for editing the underlying place notation directly, and a call strip for inserting bobs and singles at lead ends.
 - A **truth check** that runs on every edit and marks the exact row where a composition repeats itself.
