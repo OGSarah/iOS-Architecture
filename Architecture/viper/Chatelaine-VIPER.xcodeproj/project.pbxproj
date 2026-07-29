@@ -268,10 +268,10 @@
 				DEVELOPMENT_TEAM = P92GSKWU9W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Chatelaine-VIPER/Info.plist";
-				INFOPLIST_KEY_NSHomeKitUsageDescription = "Chatelaine keeps your rooms, accessories, and automations in one place, so it needs access to your home data to show and control them.";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "Chatelaine uses HomeKit to show your homes, rooms, and accessories and to let you control them.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Chatelaine uses the local network to set up and communicate with Matter accessories.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -307,10 +307,10 @@
 				DEVELOPMENT_TEAM = P92GSKWU9W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Chatelaine-VIPER/Info.plist";
-				INFOPLIST_KEY_NSHomeKitUsageDescription = "Chatelaine keeps your rooms, accessories, and automations in one place, so it needs access to your home data to show and control them.";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "Chatelaine uses HomeKit to show your homes, rooms, and accessories and to let you control them.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Chatelaine uses the local network to set up and communicate with Matter accessories.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

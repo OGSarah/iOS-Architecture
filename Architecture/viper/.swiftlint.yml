@@ -1,0 +1,63 @@
+# SwiftLint configuration for Chatelaine-VIPER.
+#
+# VIPER is deliberately protocol-heavy and file-per-role, so a few default rules are
+# relaxed for the contract files. The "Run SwiftLint" build phase is guarded by
+# `if which swiftlint` so the build never fails when the binary is not installed.
+
+included:
+  - Chatelaine-VIPER
+  - Chatelaine-VIPERTests
+  - Chatelaine-VIPERUITests
+  - ChatelaineMatterExtension
+
+excluded:
+  - Chatelaine-VIPER/Assets.xcassets
+  - Fixtures
+  - Screenshots
+
+disabled_rules:
+  - todo                     # In-progress markers are expected during the build-out.
+  - trailing_comma           # Multiline collection trailing commas are preferred here.
+
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - first_where
+  - force_unwrapping
+  - redundant_nil_coalescing
+  - sorted_first_last
+  - unneeded_parentheses_in_closure_argument
+  - vertical_whitespace_closing_braces
+
+force_unwrapping:
+  severity: error
+
+file_length:
+  warning: 500
+  error: 800
+
+type_body_length:
+  warning: 350
+  error: 500
+
+function_body_length:
+  warning: 80
+  error: 140
+
+line_length:
+  warning: 140
+  error: 200
+  ignores_comments: true
+  ignores_urls: true
+
+identifier_name:
+  min_length:
+    warning: 2
+  excluded:
+    - id
+    - on
+    - to
+    - up
+
+# Contract files group five protocols and are intentionally long.
+custom_rules: {}

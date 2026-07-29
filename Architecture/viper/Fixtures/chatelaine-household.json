@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "note": "Importable household for the HomeKit Accessory Simulator and the source of truth for the DEBUG ScriptedHomeStore. Setup IDs match the physical simulator accessories.",
+  "home": {
+    "id": "home.chatelaine",
+    "name": "Chatelaine House",
+    "isPrimary": true,
+    "zones": [
+      {
+        "id": "zone.upstairs",
+        "name": "Upstairs",
+        "roomIDs": ["room.bedroom"]
+      }
+    ],
+    "rooms": [
+      { "id": "room.bedroom", "name": "Bedroom" },
+      { "id": "room.kitchen", "name": "Kitchen" }
+    ],
+    "accessories": [
+      {
+        "id": "accessory.bridge",
+        "name": "Bridge",
+        "setupID": "06029003",
+        "roomID": null,
+        "isBridge": true,
+        "bridgedAccessoryIDs": ["accessory.light", "accessory.fan", "accessory.purifier"],
+        "reachability": "reachable",
+        "services": []
+      },
+      {
+        "id": "accessory.light",
+        "name": "Bedroom Overhead Light",
+        "setupID": "12663208",
+        "roomID": "room.bedroom",
+        "bridgedBy": "accessory.bridge",
+        "reachability": "reachable",
+        "services": [
+          {
+            "id": "service.light",
+            "type": "lightbulb",
+            "name": "Overhead Light",
+            "characteristics": [
+              { "type": "power", "format": "bool", "perms": ["read", "write", "notify"], "value": false },
+              { "type": "brightness", "format": "int", "perms": ["read", "write", "notify"], "min": 0, "max": 100, "step": 1, "unit": "percentage", "value": 60 }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "accessory.fan",
+        "name": "Bedroom Fan",
+        "setupID": "54314619",
+        "roomID": "room.bedroom",
+        "bridgedBy": "accessory.bridge",
+        "reachability": "reachable",
+        "services": [
+          {
+            "id": "service.fan",
+            "type": "fan",
+            "name": "Fan",
+            "characteristics": [
+              { "type": "power", "format": "bool", "perms": ["read", "write", "notify"], "value": false },
+              { "type": "rotationSpeed", "format": "int", "perms": ["read", "write", "notify"], "min": 0, "max": 100, "step": 10, "unit": "percentage", "value": 0 }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "accessory.purifier",
+        "name": "Air Purifier",
+        "setupID": "93344740",
+        "roomID": "room.bedroom",
+        "bridgedBy": "accessory.bridge",
+        "reachability": "reachable",
+        "services": [
+          {
+            "id": "service.purifier",
+            "type": "airPurifier",
+            "name": "Air Purifier",
+            "characteristics": [
+              { "type": "active", "format": "bool", "perms": ["read", "write", "notify"], "value": true },
+              { "type": "airQuality", "format": "int", "perms": ["read", "notify"], "min": 0, "max": 5, "step": 1, "value": 2 }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "accessory.ac",
+        "name": "AC Unit",
+        "setupID": "99831234",
+        "roomID": "room.bedroom",
+        "reachability": "reachable",
+        "services": [
+          {
+            "id": "service.ac",
+            "type": "heaterCooler",
+            "name": "AC Unit",
+            "characteristics": [
+              { "type": "active", "format": "bool", "perms": ["read", "write", "notify"], "value": false },
+              { "type": "currentTemperature", "format": "double", "perms": ["read", "notify"], "min": -40, "max": 60, "step": 0.1, "unit": "celsius", "value": 24.5 },
+              { "type": "targetTemperature", "format": "double", "perms": ["read", "write", "notify"], "min": 16, "max": 30, "step": 0.5, "unit": "celsius", "value": 21.0 }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "accessory.faucet",
+        "name": "Kitchen Faucet",
+        "setupID": "15070485",
+        "roomID": "room.kitchen",
+        "reachability": "reachable",
+        "services": [
+          {
+            "id": "service.faucet",
+            "type": "valve",
+            "name": "Faucet",
+            "characteristics": [
+              { "type": "active", "format": "bool", "perms": ["read", "write", "notify"], "value": false },
+              { "type": "remainingDuration", "format": "int", "perms": ["read", "notify"], "min": 0, "max": 3600, "step": 1, "unit": "seconds", "value": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
