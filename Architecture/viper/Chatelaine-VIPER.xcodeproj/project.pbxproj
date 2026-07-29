@@ -261,11 +261,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Chatelaine-VIPER/Chatelaine-VIPER.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P92GSKWU9W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Chatelaine-VIPER/Info.plist";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "Chatelaine keeps your rooms, accessories, and automations in one place, so it needs access to your home data to show and control them.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -297,11 +299,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Chatelaine-VIPER/Chatelaine-VIPER.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P92GSKWU9W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Chatelaine-VIPER/Info.plist";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "Chatelaine keeps your rooms, accessories, and automations in one place, so it needs access to your home data to show and control them.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
