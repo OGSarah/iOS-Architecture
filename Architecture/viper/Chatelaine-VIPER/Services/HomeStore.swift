@@ -365,3 +365,105 @@ extension HomeStore: HMAccessoryDelegate {
         MainActor.assumeIsolated { notifyHomeUpdate() }
     }
 }
+
+// MARK: - TriggerReading
+
+extension HomeStore: TriggerReading {
+
+    func automations() async -> [AutomationSummary] {
+        guard let home = primaryHome else { return [] }
+        return TriggerMapper.summaries(from: home.triggers)
+    }
+}
+
+// MARK: - TriggerWriting
+
+extension HomeStore: TriggerWriting {
+
+    func save(_ draft: AutomationDraft) async throws {
+        guard let home = primaryHome else { throw TriggerWriteError.rejected }
+        guard case let .valid(validDraft) = AutomationValidator.validate(draft) else {
+            throw TriggerWriteError.invalidDraft
+        }
+
+        let name = validDraft.name.isEmpty ? "Automation" : validDraft.name
+        let trigger = try TriggerMapper.makeTrigger(name: name, condition: validDraft.condition, lookup: characteristicsByID)
+
+        let actionSet = try await addActionSet(named: "\(name) actions", in: home)
+        for action in validDraft.actions {
+            guard let characteristic = characteristicsByID[action.characteristicID] else { continue }
+            try await addWriteAction(action.targetValue, to: actionSet, characteristic: characteristic)
+        }
+
+        try await add(trigger, to: home)
+        try await addActionSet(actionSet, to: trigger)
+        try await setEnabled(true, for: trigger)
+    }
+
+    func remove(_ automationID: String) async throws {
+        guard let home = primaryHome,
+              let trigger = home.triggers.first(where: { $0.uniqueIdentifier.uuidString == automationID }) else {
+            throw TriggerWriteError.rejected
+        }
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            home.removeTrigger(trigger) { error in
+                if let error { continuation.resume(throwing: error) } else { continuation.resume() }
+            }
+        }
+    }
+
+    // MARK: Continuation helpers
+
+    private func addActionSet(named name: String, in home: HMHome) async throws -> HMActionSet {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<HMActionSet, Error>) in
+            home.addActionSet(withName: name) { actionSet, error in
+                if let actionSet {
+                    continuation.resume(returning: actionSet)
+                } else {
+                    continuation.resume(throwing: error ?? TriggerWriteError.rejected)
+                }
+            }
+        }
+    }
+
+    private func addWriteAction(_ value: CharacteristicValue, to actionSet: HMActionSet, characteristic: HMCharacteristic) async throws {
+        // The write action is generic over its value type, so build it with the concrete type.
+        let action: HMAction
+        switch value {
+        case let .bool(bool): action = HMCharacteristicWriteAction(characteristic: characteristic, targetValue: NSNumber(value: bool))
+        case let .int(int): action = HMCharacteristicWriteAction(characteristic: characteristic, targetValue: NSNumber(value: int))
+        case let .double(double): action = HMCharacteristicWriteAction(characteristic: characteristic, targetValue: NSNumber(value: double))
+        case let .string(string): action = HMCharacteristicWriteAction(characteristic: characteristic, targetValue: string as NSString)
+        case .data, .unknown: return
+        }
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            actionSet.addAction(action) { error in
+                if let error { continuation.resume(throwing: error) } else { continuation.resume() }
+            }
+        }
+    }
+
+    private func add(_ trigger: HMTrigger, to home: HMHome) async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            home.addTrigger(trigger) { error in
+                if let error { continuation.resume(throwing: error) } else { continuation.resume() }
+            }
+        }
+    }
+
+    private func addActionSet(_ actionSet: HMActionSet, to trigger: HMTrigger) async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            trigger.addActionSet(actionSet) { error in
+                if let error { continuation.resume(throwing: error) } else { continuation.resume() }
+            }
+        }
+    }
+
+    private func setEnabled(_ enabled: Bool, for trigger: HMTrigger) async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            trigger.enable(enabled) { error in
+                if let error { continuation.resume(throwing: error) } else { continuation.resume() }
+            }
+        }
+    }
+}

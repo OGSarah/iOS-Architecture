@@ -1,5 +1,5 @@
 //
-//  HomeListViewController.swift
+//  AutomationListViewController.swift
 //  Chatelaine-VIPER
 //
 //  Created by Sarah Clark on 7/29/26.
@@ -7,18 +7,17 @@
 
 import UIKit
 
-/// A passive sidebar list of the home and its zones, driven entirely by `display(_:)`.
-final class HomeListViewController: UIViewController, HomeListViewInput, UICollectionViewDelegate {
+/// A passive list of saved automations with add and done bar buttons.
+final class AutomationListViewController: UIViewController, AutomationListViewInput {
 
-    private let output: HomeListViewOutput
+    private let output: AutomationListViewOutput
 
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Int, String>!
-    private var rowsByID: [String: HomeListViewModel.Row] = [:]
-
+    private var rowsByID: [String: AutomationListViewModel.Row] = [:]
     private let emptyLabel = UILabel()
 
-    init(output: HomeListViewOutput) {
+    init(output: AutomationListViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,37 +29,26 @@ final class HomeListViewController: UIViewController, HomeListViewInput, UIColle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "BrandNavy")
+        view.backgroundColor = .systemBackground
         configureNavigationItems()
         configureCollectionView()
         configureEmptyLabel()
         configureDataSource()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Reload each time so a newly created automation appears on return from the builder.
         output.viewDidLoad()
     }
 
-    private func configureNavigationItems() {
-        let automations = UIBarButtonItem(
-            image: UIImage(systemName: "wand.and.stars"),
-            primaryAction: UIAction { [weak self] _ in self?.output.didTapAutomations() }
-        )
-        automations.accessibilityLabel = "Automations"
-        navigationItem.rightBarButtonItem = automations
-    }
+    // MARK: - AutomationListViewInput
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        output.viewWillDisappear()
-    }
-
-    // MARK: - HomeListViewInput
-
-    func display(_ viewModel: HomeListViewModel) {
+    func display(_ viewModel: AutomationListViewModel) {
         title = viewModel.title
         rowsByID = Dictionary(uniqueKeysWithValues: viewModel.rows.map { ($0.id, $0) })
-
         emptyLabel.text = viewModel.emptyMessage
-        emptyLabel.isHidden = viewModel.rows.isEmpty == false || viewModel.emptyMessage == nil
-        collectionView.isHidden = viewModel.rows.isEmpty
+        emptyLabel.isHidden = viewModel.emptyMessage == nil
 
         var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
         snapshot.appendSections([0])
@@ -70,15 +58,22 @@ final class HomeListViewController: UIViewController, HomeListViewInput, UIColle
 
     // MARK: - Setup
 
-    private func configureCollectionView() {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .sidebar)
-        configuration.backgroundColor = UIColor(named: "BrandNavy")
-        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
+    private func configureNavigationItems() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .done, primaryAction: UIAction { [weak self] _ in
+            self?.output.didTapDone()
+        })
+        let addButton = UIBarButtonItem(systemItem: .add, primaryAction: UIAction { [weak self] _ in
+            self?.output.didTapCreate()
+        })
+        addButton.accessibilityLabel = "Create automation"
+        navigationItem.rightBarButtonItem = addButton
+    }
 
+    private func configureCollectionView() {
+        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.delegate = self
-        collectionView.accessibilityIdentifier = AccessibilityIdentifiers.HomeList.collection
         view.addSubview(collectionView)
     }
 
@@ -102,21 +97,12 @@ final class HomeListViewController: UIViewController, HomeListViewInput, UIColle
             guard let row = self?.rowsByID[identifier] else { return }
             var content = cell.defaultContentConfiguration()
             content.text = row.name
-            content.secondaryText = row.subtitle
-            content.image = UIImage(systemName: row.kind == .home ? "house.fill" : "square.stack.3d.up.fill")
-            content.imageProperties.tintColor = UIColor(named: "AccentColor")
+            content.secondaryText = row.detail
             cell.contentConfiguration = content
             cell.accessibilityLabel = row.accessibilityLabel
         }
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView) { collectionView, indexPath, identifier in
             collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: identifier)
         }
-    }
-
-    // MARK: - UICollectionViewDelegate
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let identifier = dataSource.itemIdentifier(for: indexPath) else { return }
-        output.didSelectRow(id: identifier)
     }
 }

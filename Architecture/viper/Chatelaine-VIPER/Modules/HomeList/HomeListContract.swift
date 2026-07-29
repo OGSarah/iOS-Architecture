@@ -17,6 +17,7 @@ protocol HomeListViewOutput: AnyObject {
     func viewDidLoad()
     func viewWillDisappear()
     func didSelectRow(id: String)
+    func didTapAutomations()
 }
 
 @MainActor
@@ -35,4 +36,5 @@ protocol HomeListInteractorOutput: AnyObject {
 @MainActor
 protocol HomeListRouterInput: AnyObject {
     func routeToHome(homeID: String)
+    func routeToAutomations()
 }

@@ -38,6 +38,10 @@ extension HomeListPresenter: HomeListViewOutput {
         guard let home else { return }
         router.routeToHome(homeID: home.id)
     }
+
+    func didTapAutomations() {
+        router.routeToAutomations()
+    }
 }
 
 // MARK: - HomeListInteractorOutput

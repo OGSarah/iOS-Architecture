@@ -35,7 +35,8 @@ final class ChatelaineModuleFactory: ModuleFactory {
     }
 
     func makeAutomationBuilder(draftID: AutomationDraft.ID) -> UIViewController {
-        UINavigationController(rootViewController: PlaceholderViewController(title: "Automation"))
+        // The automations modal opens on the list, and the list pushes the builder to create one.
+        AutomationListBuilder.build(homeStore: homeStore, appRouter: router)
     }
 
     func makeSetup() -> UIViewController {
