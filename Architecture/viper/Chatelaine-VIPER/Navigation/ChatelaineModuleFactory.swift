@@ -16,9 +16,9 @@ final class ChatelaineModuleFactory: ModuleFactory {
     /// The router modules call back into for navigation, set after construction to break the cycle.
     weak var router: AppRouter?
 
-    private let homeStore: HomeStore
+    private let homeStore: HomeServicing
 
-    init(homeStore: HomeStore) {
+    init(homeStore: HomeServicing) {
         self.homeStore = homeStore
     }
 

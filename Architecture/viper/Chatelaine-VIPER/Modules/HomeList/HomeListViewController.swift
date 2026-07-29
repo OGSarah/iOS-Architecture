@@ -30,6 +30,9 @@ final class HomeListViewController: UIViewController, HomeListViewInput, UIColle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // The sidebar is always the dark brand surface, so pin the appearance to dark. That keeps
+        // the list text and empty state legible in Light mode instead of dark on dark.
+        overrideUserInterfaceStyle = .dark
         view.backgroundColor = UIColor(named: "BrandNavy")
         configureNavigationItems()
         configureCollectionView()

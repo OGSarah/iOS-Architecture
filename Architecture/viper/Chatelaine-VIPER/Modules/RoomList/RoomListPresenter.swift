@@ -40,6 +40,10 @@ extension RoomListPresenter: RoomListViewOutput {
     func didSelectAccessory(accessoryID: String) {
         router.routeToAccessory(accessoryID: accessoryID)
     }
+
+    func didTapAddAccessory() {
+        router.routeToSetup()
+    }
 }
 
 // MARK: - RoomListInteractorOutput

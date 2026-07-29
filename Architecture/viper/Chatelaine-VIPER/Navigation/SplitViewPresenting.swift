@@ -28,17 +28,12 @@ protocol SplitViewPresenting: AnyObject {
     var isCollapsed: Bool { get }
 
     /// Installs a view controller as the root of a column.
-    /// - Parameters:
-    ///   - viewController: The controller to install.
-    ///   - column: The column it belongs in.
     func install(_ viewController: UIViewController, in column: SplitColumn)
 
-    /// Pushes a detail onto the stack, used when the layout has collapsed to compact width.
-    /// - Parameter viewController: The controller to push.
+    /// Pushes a detail onto the currently visible stack, used at compact width.
     func pushDetail(_ viewController: UIViewController)
 
     /// Presents a modal flow, such as the automation builder or the setup flow.
-    /// - Parameter viewController: The controller to present.
     func presentModally(_ viewController: UIViewController)
 
     /// Dismisses the current modal flow, if any.
@@ -50,19 +45,18 @@ protocol SplitViewPresenting: AnyObject {
 
 /// The concrete `UISplitViewController` that backs the app's three column layout.
 ///
-/// This is the only conformer to `SplitViewPresenting` that touches UIKit's split view. It maps the
-/// project's `SplitColumn` onto `UISplitViewController.Column` and keeps a navigation controller for
-/// the compact, collapsed presentation.
+/// On regular width the three columns are shown and `install(_:in:)` targets them directly. On
+/// compact width the split view collapses to a single navigation stack, which is the dedicated
+/// compact column seeded at launch, and navigation becomes a push onto that stack.
 final class AppSplitViewController: UISplitViewController, SplitViewPresenting {
 
-    /// The stack used when the layout collapses to a single column at compact width.
-    private let compactNavigation = UINavigationController()
+    /// The navigation stack shown when the layout collapses at compact width.
+    private var compactNavigation: UINavigationController?
 
     init() {
         super.init(style: .tripleColumn)
         preferredDisplayMode = .twoBesideSecondary
         preferredSplitBehavior = .tile
-        setViewController(compactNavigation, for: .compact)
     }
 
     @available(*, unavailable)
@@ -70,16 +64,20 @@ final class AppSplitViewController: UISplitViewController, SplitViewPresenting {
         fatalError("init(coder:) is not used, this controller is built in code")
     }
 
+    /// Seeds the compact column with the root shown when the split view collapses.
+    /// - Parameter viewController: The root of the compact navigation stack.
+    func setCompactRoot(_ viewController: UIViewController) {
+        let navigation = UINavigationController(rootViewController: viewController)
+        compactNavigation = navigation
+        setViewController(navigation, for: .compact)
+    }
+
     func install(_ viewController: UIViewController, in column: SplitColumn) {
         setViewController(viewController, for: uiColumn(for: column))
-        if isCollapsed, column == .primary {
-            // When collapsed, the primary column is the root of the visible stack.
-            compactNavigation.setViewControllers([viewController], animated: false)
-        }
     }
 
     func pushDetail(_ viewController: UIViewController) {
-        compactNavigation.pushViewController(viewController, animated: true)
+        activeNavigationController()?.pushViewController(viewController, animated: true)
     }
 
     func presentModally(_ viewController: UIViewController) {
@@ -91,7 +89,13 @@ final class AppSplitViewController: UISplitViewController, SplitViewPresenting {
     }
 
     func resetToRoot() {
-        compactNavigation.popToRootViewController(animated: false)
+        compactNavigation?.popToRootViewController(animated: false)
+    }
+
+    /// The navigation stack a push should target for the current width.
+    private func activeNavigationController() -> UINavigationController? {
+        if isCollapsed { return compactNavigation }
+        return viewController(for: .secondary) as? UINavigationController
     }
 
     /// Maps the project's column to UIKit's split view column.

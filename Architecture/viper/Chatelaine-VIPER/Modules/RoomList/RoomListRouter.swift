@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// Expresses the intent to open an accessory, leaving the how to `AppRouter`.
+/// Expresses the intent to open an accessory or the setup flow, leaving the how to `AppRouter`.
 final class RoomListRouter: RoomListRouterInput {
 
     weak var appRouter: AppRouter?
@@ -15,5 +15,9 @@ final class RoomListRouter: RoomListRouterInput {
 
     func routeToAccessory(accessoryID: String) {
         appRouter?.present(.accessory(accessoryID))
+    }
+
+    func routeToSetup() {
+        appRouter?.present(.setup)
     }
 }

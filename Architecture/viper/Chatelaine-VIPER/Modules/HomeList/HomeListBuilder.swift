@@ -10,7 +10,7 @@ import UIKit
 /// Assembles the HomeList module and returns the sidebar view controller.
 enum HomeListBuilder {
 
-    static func build(homeStore: HomeStore, appRouter: AppRouter?) -> UIViewController {
+    static func build(homeStore: HomeServicing, appRouter: AppRouter?) -> UIViewController {
         let interactor = HomeListInteractor(homeStore: homeStore)
         let router = HomeListRouter()
         router.appRouter = appRouter

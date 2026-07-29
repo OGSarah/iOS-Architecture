@@ -10,7 +10,7 @@ import UIKit
 /// Assembles the AutomationList module inside a navigation controller for modal presentation.
 enum AutomationListBuilder {
 
-    static func build(homeStore: HomeStore, appRouter: AppRouter?) -> UIViewController {
+    static func build(homeStore: HomeServicing, appRouter: AppRouter?) -> UIViewController {
         let interactor = AutomationListInteractor(reader: homeStore)
         let router = AutomationListRouter(writer: homeStore)
         let presenter = AutomationListPresenter(interactor: interactor, router: router)

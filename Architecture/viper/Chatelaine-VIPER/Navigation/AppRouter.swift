@@ -41,12 +41,16 @@ final class AppRouter {
         self.moduleFactory = moduleFactory
     }
 
-    /// Installs the initial user interface, showing onboarding first on a fresh install.
+    /// Installs the initial user interface.
     func start() {
         present(.homes)
-        if !Preferences.hasCompletedOnboarding {
-            presentOnboarding()
-        }
+    }
+
+    /// Presents onboarding on a fresh install. Called after the window is visible so the modal has a
+    /// view controller in the hierarchy to present from.
+    func showOnboardingIfNeeded() {
+        guard !Preferences.hasCompletedOnboarding else { return }
+        presentOnboarding()
     }
 
     /// Presents the settings modal.
@@ -127,6 +131,11 @@ final class AppRouter {
     // MARK: - Resolution
 
     private func presentHome(_ homeID: HomeSnapshot.ID) {
+        // Collapsed to a stack at compact width, so opening a home pushes its rooms.
+        if splitView.isCollapsed {
+            splitView.pushDetail(moduleFactory.makeRoomList(homeID: homeID))
+            return
+        }
         splitView.install(moduleFactory.makeHomeList(), in: .primary)
         splitView.install(moduleFactory.makeRoomList(homeID: homeID), in: .supplementary)
     }
@@ -134,6 +143,10 @@ final class AppRouter {
     private func presentRoom(_ roomID: RoomSnapshot.ID) {
         guard let homeID = home?.id else {
             splitView.install(moduleFactory.makeHomeList(), in: .primary)
+            return
+        }
+        if splitView.isCollapsed {
+            splitView.pushDetail(moduleFactory.makeRoomList(homeID: homeID))
             return
         }
         splitView.install(moduleFactory.makeHomeList(), in: .primary)
@@ -150,12 +163,13 @@ final class AppRouter {
             return
         }
 
-        // Regular width. Build the sidebar and supplementary column in order, then the detail.
+        // Regular width. Build the sidebar and supplementary column in order, then the detail. The
+        // detail is wrapped in a navigation controller so a service can push onto it in this column.
         splitView.install(moduleFactory.makeHomeList(), in: .primary)
         if let homeID = home?.id {
             splitView.install(moduleFactory.makeRoomList(homeID: homeID), in: .supplementary)
         }
-        splitView.install(detail, in: .secondary)
+        splitView.install(UINavigationController(rootViewController: detail), in: .secondary)
     }
 
     /// Clears any pending setup ticket, marking that the user has moved on.

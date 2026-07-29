@@ -30,6 +30,12 @@ final class RoomListViewController: UIViewController, RoomListViewInput, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        let add = UIBarButtonItem(systemItem: .add, primaryAction: UIAction { [weak self] _ in
+            self?.output.didTapAddAccessory()
+        })
+        add.accessibilityLabel = "Add Accessory"
+        add.accessibilityIdentifier = "roomList.addAccessory"
+        navigationItem.rightBarButtonItem = add
         configureCollectionView()
         configureDataSource()
         output.viewDidLoad()

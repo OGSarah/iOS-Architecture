@@ -39,6 +39,10 @@ final class OnboardingViewController: UIViewController, OnboardingViewInput, UIS
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // This surface is always the dark brand gradient, so pin the appearance to dark. That keeps
+        // the semantic and palette colors resolving to their light-on-dark variants, which avoids
+        // dark text on the dark background in Light mode.
+        overrideUserInterfaceStyle = .dark
         configureBackground()
         configureScrollView()
         configureControls()
@@ -178,8 +182,10 @@ final class OnboardingViewController: UIViewController, OnboardingViewInput, UIS
 
         for page in pages {
             let (pageView, icon) = makePageView(page)
-            pageView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
+            // Add to the hierarchy first, so the width constraint against the scroll view has a
+            // common ancestor when it is activated.
             pagesStack.addArrangedSubview(pageView)
+            pageView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
             pageIcons.append(icon)
         }
     }

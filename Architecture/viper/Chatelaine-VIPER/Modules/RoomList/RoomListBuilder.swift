@@ -10,7 +10,7 @@ import UIKit
 /// Assembles the RoomList module for the supplementary column.
 enum RoomListBuilder {
 
-    static func build(homeID: String, homeStore: HomeStore, appRouter: AppRouter?) -> UIViewController {
+    static func build(homeID: String, homeStore: HomeServicing, appRouter: AppRouter?) -> UIViewController {
         let interactor = RoomListInteractor(homeID: homeID, homeStore: homeStore)
         let router = RoomListRouter()
         router.appRouter = appRouter

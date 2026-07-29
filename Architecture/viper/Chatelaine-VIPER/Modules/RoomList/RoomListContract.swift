@@ -17,6 +17,7 @@ protocol RoomListViewOutput: AnyObject {
     func viewDidLoad()
     func viewWillDisappear()
     func didSelectAccessory(accessoryID: String)
+    func didTapAddAccessory()
 }
 
 @MainActor
@@ -34,4 +35,5 @@ protocol RoomListInteractorOutput: AnyObject {
 @MainActor
 protocol RoomListRouterInput: AnyObject {
     func routeToAccessory(accessoryID: String)
+    func routeToSetup()
 }
