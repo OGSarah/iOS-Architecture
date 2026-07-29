@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// Expresses the intent to open a home's rooms or the automations modal, leaving the how to `AppRouter`.
+/// Expresses the intent to open a home's rooms, the automations modal, or settings.
 final class HomeListRouter: HomeListRouterInput {
 
     weak var appRouter: AppRouter?
@@ -20,5 +20,9 @@ final class HomeListRouter: HomeListRouterInput {
 
     func routeToAutomations() {
         appRouter?.present(.automationBuilder(UUID().uuidString))
+    }
+
+    func routeToSettings() {
+        appRouter?.presentSettings()
     }
 }

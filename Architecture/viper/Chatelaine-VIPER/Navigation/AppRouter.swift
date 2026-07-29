@@ -41,9 +41,29 @@ final class AppRouter {
         self.moduleFactory = moduleFactory
     }
 
-    /// Installs the initial user interface.
+    /// Installs the initial user interface, showing onboarding first on a fresh install.
     func start() {
         present(.homes)
+        if !Preferences.hasCompletedOnboarding {
+            presentOnboarding()
+        }
+    }
+
+    /// Presents the settings modal.
+    func presentSettings() {
+        splitView.presentModally(moduleFactory.makeSettings())
+    }
+
+    /// Presents the onboarding flow again, used after the user asks to replay it in settings.
+    func replayOnboarding() {
+        presentOnboarding()
+    }
+
+    private func presentOnboarding() {
+        let onboarding = moduleFactory.makeOnboarding { [weak self] in
+            self?.splitView.dismissModal()
+        }
+        splitView.presentModally(onboarding)
     }
 
     /// Updates the home snapshot the router uses to resolve routes.

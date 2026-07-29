@@ -42,6 +42,14 @@ final class ChatelaineModuleFactory: ModuleFactory {
     func makeSetup() -> UIViewController {
         AccessorySetupBuilder.build(commissioner: MatterCommissioner(), appRouter: router)
     }
+
+    func makeSettings() -> UIViewController {
+        SettingsBuilder.build(appRouter: router)
+    }
+
+    func makeOnboarding(onFinish: @escaping () -> Void) -> UIViewController {
+        OnboardingBuilder.build(onFinish: onFinish)
+    }
 }
 
 /// A temporary placeholder for the modules not yet built.

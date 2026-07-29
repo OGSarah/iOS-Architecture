@@ -45,6 +45,13 @@ final class HomeListViewController: UIViewController, HomeListViewInput, UIColle
         )
         automations.accessibilityLabel = "Automations"
         navigationItem.rightBarButtonItem = automations
+
+        let settings = UIBarButtonItem(
+            image: UIImage(systemName: "gearshape"),
+            primaryAction: UIAction { [weak self] _ in self?.output.didTapSettings() }
+        )
+        settings.accessibilityLabel = "Settings"
+        navigationItem.leftBarButtonItem = settings
     }
 
     override func viewWillDisappear(_ animated: Bool) {

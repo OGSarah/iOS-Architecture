@@ -25,10 +25,17 @@ protocol ModuleFactory: AnyObject {
     /// - Parameter accessoryID: The accessory to show.
     func makeAccessoryDetail(accessoryID: AccessorySnapshot.ID) -> UIViewController
 
-    /// Builds the automation builder modal for a draft.
-    /// - Parameter draftID: The draft being edited.
+    /// Builds the automations modal, which lists automations and can create one.
+    /// - Parameter draftID: The draft seed, when created from a characteristic.
     func makeAutomationBuilder(draftID: AutomationDraft.ID) -> UIViewController
 
     /// Builds the accessory setup and commissioning modal.
     func makeSetup() -> UIViewController
+
+    /// Builds the settings modal.
+    func makeSettings() -> UIViewController
+
+    /// Builds the onboarding flow.
+    /// - Parameter onFinish: Called when onboarding completes or is skipped.
+    func makeOnboarding(onFinish: @escaping () -> Void) -> UIViewController
 }

@@ -42,6 +42,10 @@ extension HomeListPresenter: HomeListViewOutput {
     func didTapAutomations() {
         router.routeToAutomations()
     }
+
+    func didTapSettings() {
+        router.routeToSettings()
+    }
 }
 
 // MARK: - HomeListInteractorOutput

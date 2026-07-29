@@ -61,4 +61,6 @@ final class StubModuleFactory: ModuleFactory {
     func makeAccessoryDetail(accessoryID: AccessorySnapshot.ID) -> UIViewController { UIViewController() }
     func makeAutomationBuilder(draftID: AutomationDraft.ID) -> UIViewController { UIViewController() }
     func makeSetup() -> UIViewController { UIViewController() }
+    func makeSettings() -> UIViewController { UIViewController() }
+    func makeOnboarding(onFinish: @escaping () -> Void) -> UIViewController { UIViewController() }
 }
