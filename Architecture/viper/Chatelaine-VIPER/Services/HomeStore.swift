@@ -376,6 +376,24 @@ extension HomeStore: TriggerReading {
     }
 }
 
+// MARK: - Scene activation
+
+extension HomeStore {
+
+    /// Executes a scene, matched by name, for the App Intents entry point.
+    /// - Parameter name: The scene name to match, case insensitively.
+    /// - Returns: `true` when a matching scene was found and executed.
+    func activateScene(named name: String) async -> Bool {
+        guard let home = primaryHome,
+              let actionSet = home.actionSets.first(where: { $0.name.localizedCaseInsensitiveContains(name) }) else {
+            return false
+        }
+        return await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
+            home.executeActionSet(actionSet) { _ in continuation.resume(returning: true) }
+        }
+    }
+}
+
 // MARK: - TriggerWriting
 
 extension HomeStore: TriggerWriting {

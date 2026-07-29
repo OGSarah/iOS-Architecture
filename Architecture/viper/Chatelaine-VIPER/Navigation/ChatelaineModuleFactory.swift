@@ -40,7 +40,7 @@ final class ChatelaineModuleFactory: ModuleFactory {
     }
 
     func makeSetup() -> UIViewController {
-        UINavigationController(rootViewController: PlaceholderViewController(title: "Set Up Accessory"))
+        AccessorySetupBuilder.build(commissioner: MatterCommissioner(), appRouter: router)
     }
 }
 
