@@ -9,9 +9,8 @@ import UIKit
 
 /// The production `ModuleFactory`, assembling each module through its Builder.
 ///
-/// The Builders and their modules arrive in a later milestone. Until then each method returns a
-/// styled placeholder so the three column layout is real and navigable, and so `AppRouter` can be
-/// exercised end to end. Replacing a placeholder with its Builder call is a one line change.
+/// The automation builder and setup modules arrive in later milestones and are still placeholders.
+/// The three columns of the main experience are wired to their real Builders.
 final class ChatelaineModuleFactory: ModuleFactory {
 
     /// The router modules call back into for navigation, set after construction to break the cycle.
@@ -24,15 +23,15 @@ final class ChatelaineModuleFactory: ModuleFactory {
     }
 
     func makeHomeList() -> UIViewController {
-        PlaceholderViewController(title: "Homes")
+        HomeListBuilder.build(homeStore: homeStore, appRouter: router)
     }
 
     func makeRoomList(homeID: HomeSnapshot.ID) -> UIViewController {
-        PlaceholderViewController(title: "Rooms")
+        RoomListBuilder.build(homeID: homeID, homeStore: homeStore, appRouter: router)
     }
 
     func makeAccessoryDetail(accessoryID: AccessorySnapshot.ID) -> UIViewController {
-        PlaceholderViewController(title: "Accessory")
+        AccessoryDetailBuilder.build(accessoryID: accessoryID, homeStore: homeStore, appRouter: router)
     }
 
     func makeAutomationBuilder(draftID: AutomationDraft.ID) -> UIViewController {
@@ -44,10 +43,7 @@ final class ChatelaineModuleFactory: ModuleFactory {
     }
 }
 
-/// A temporary column placeholder shown until the real modules are built.
-///
-/// It uses the brand palette so the layout reads correctly in light and dark mode while the modules
-/// are being filled in.
+/// A temporary placeholder for the modules not yet built.
 final class PlaceholderViewController: UIViewController {
 
     private let displayTitle: String
